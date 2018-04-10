@@ -1,0 +1,165 @@
+<% layout('getx_layout.html') -%>
+<link rel="stylesheet" href="../public/stylesheets/modifyPersonalInfo.css">
+<ol class="breadcrumb">
+    <li><a href="#">个人中心</a></li>
+    <li class="active">修改个人信息</li>
+</ol>
+<div class="mutual_name">
+    个人信息修改
+</div>
+<div class="info-div">
+    <div class="info">
+        <img src="../../public/img/personalInfo.png" alt="">
+        <p>个人基本信息</p>
+    </div>
+    <div class="mutual-data">
+        <table class="table-text">
+            <tr>
+                <td width="160">姓名：</td>
+                <td id="name"></td>
+            </tr>
+            <tr style="background: #fff;">
+                <td>邮箱：</td>
+                <td id="email"></td>
+            </tr>
+            <tr>
+                <td>证件号码：</td>
+                <td id="identity">99999999999999999999</td>
+            </tr>
+        </table>
+    </div>
+    <div class="info">
+        <span>为保障权益，请您完善个人信息，我们将在必要时与您取得联系。实名信息是您在平台享有互助权力的有效依据，如需更改证件号码，请发邮件至官方邮箱：mutualaid@inschain.io，更改后的信息将更新到官网。</span>
+    </div>
+    <div class="info" style="margin-top: 30px;">
+        <img src="../../public/img/personalMod.png" alt="">
+        <p>添加或修改其他信息</p>
+    </div>
+    <div class="mutual-data">
+
+        <table class="table-textnext table table-striped">
+            <tr>
+                <td>电话号码：</td>
+                <td>
+                    <input class="phone" placeholder="1515151515" type="text" value="" name="" autofocus>
+                </td>
+            </tr>
+            <tr>
+                <td>出生年月：</td>
+                <td>
+                    <input class="birthday" placeholder="" type="text"  name="">
+                </td>
+            </tr>
+            <tr>
+                <td>性别：</td>
+                <td>
+                    <input class="sex"  placeholder="男" type="text"  value="" name="">
+                </td>
+            </tr>
+            <tr>
+                <td>毕业院校：</td>
+                <td>
+                    <input class="graduation" placeholder="xx大学" type="text" value="" name="">
+                </td>
+            </tr>
+            <tr>
+                <td>从事职业：</td>
+                <td>
+                    <input class="job"  placeholder="程序员" type="text"  value="" name="">
+                </td>
+            </tr>
+            <tr>
+                <td>地址：</td>
+                <td>
+                    <input class="address" placeholder="" type="text"  value="" name="">
+                </td>
+            </tr>
+            <tr>
+                <td>婚姻状况：</td>
+                <td>
+                    <input class="marry" placeholder="未婚" type="text"  value="" name="">
+                </td>
+            </tr>
+
+        </table>
+    </div>
+    <div style="text-align: center;width: 100%;">
+        <div class="info-save" id="save" hasSubmit='0'>
+            保存
+        </div>
+    </div>
+
+</div>
+
+<script>
+
+
+
+$("#save").click(function () {
+    /*var phone = $("#phone").val();*/
+
+
+    if($(this).attr('hasSubmit')==1){
+        return
+    }
+
+    var  graduation= $('.graduation').val();
+    //var  school=$('.school').val();
+    var  job=$('.job').val();
+    //var  earn=$('.earn').val();
+    var  marry=$('.marry').val();
+    //var  child=$('.child').val();
+    var  phone=$('.phone').val();
+    var  sex=$('.sex').val();
+    var  address=$('.address').val();
+    var  birthday=$('.birthday').val();
+
+
+    if(graduation==''){
+        toast('请填写您毕业学校')
+        return
+    }
+    if(job==''){
+        toast('请填写您的职业')
+        return
+    }
+    if(marry==''){
+        toast('请填写您的婚姻状况')
+        return
+    }
+    if(sex==''){
+        toast('请填写您的性别')
+        return
+    }
+    if(phone==''){
+        toast('请填写您的电话号码')
+        return
+    }
+    if(address==''){
+        toast('请填写您的地址')
+        return
+    }
+    if(birthday==''){
+        toast('请填写您的出生年月')
+        return
+    }
+    var data={
+       'graduation':graduation,
+       'job':job,
+       'marry':marry,
+       'phone':phone,
+        'address': address,
+        'sex': sex,
+        'birthday': birthday
+    }
+    console.log(data)
+    $.post('/modifyUserDetil',data,function(rescnt){
+        if(rescnt.status==0){
+            $('.save').attr('hasSubmit','0')
+        }else{
+            toast(rescnt.errMsg);
+            $('.save').attr('hasSubmit','0')
+        }
+    })
+})
+</script>

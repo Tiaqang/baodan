@@ -1,0 +1,199 @@
+<% layout('getx_layout_en.html') -%>
+<link rel="stylesheet" href="../public/stylesheets/personal.css">
+<!-- <p class="my-protection-title">我的保障</p> -->
+<ol class="breadcrumb">
+	<li>Your current location:</li>
+  <li><a href="/personal">Account summary</a></li>
+  <li class="active">My protection</li>
+</ol>
+<div class="my-protection">
+	<div class="my-protection-left">
+		<ul>
+			<% if(data.length == 0){%>
+				
+			<li class="protections" style="justify-content: center;padding-top: 4rem;">
+				
+				
+				<div style="text-align: center;">
+					<p> Not joining the mutual project</p>
+					<a href="/product?program_id=1" style="font-size: 24px;"> Click to joining the mutual project </a>
+				</div>
+				
+			</li>
+			<% }else{ %>
+			
+
+			<%
+			var total_money = 0; 
+			for(var i=0;i < data.length;i++){%>
+				<% var setdata = {};
+					
+					total_money += data[i].insure_money
+					switch(data[i].status)
+					{
+					case 1:
+					  setdata = {
+								  	name:data[i].name,
+									bg:"",
+									stage:"waitperiod",
+									stage_text:"Waiting period",
+									insure_money:data[i].insure_money,
+									balance:data[i].balance,
+									insurance_id:data[i].insurance_id,
+									text_color:"",
+									mutual_name:data[i].mutual_name,
+									btntxt:'Pay rightnow'
+								}
+					  break;
+					case 2:
+					  setdata = {
+							  	name:data[i].name,
+								bg:"",
+								stage:"graceperiod",
+								stage_text:"Effective date",
+								insure_money:data[i].insure_money,
+								balance:data[i].balance,
+								insurance_id:data[i].insurance_id,
+								text_color:"peroid1",
+								mutual_name:data[i].mutual_name
+							}
+					  break;
+					  case 3:
+					  setdata = {
+								  	name:data[i].name,
+									bg:"",
+									stage:"valid",
+									stage_text:"Gracing perod",
+									insure_money:data[i].insure_money,
+									balance:data[i].balance,
+									insurance_id:data[i].insurance_id,
+									text_color:"peroid2",
+									mutual_name:data[i].mutual_name
+								}
+					  break;
+					  case 4:
+					  setdata = {
+								  	name:data[i].name,
+									bg:"",
+									stage:"quit",
+									stage_text:"Ineffective period",
+									insure_money:data[i].insure_money,
+									balance:data[i].balance,
+									insurance_id:data[i].insurance_id,
+									text_color:"peroid3",
+									mutual_name:data[i].mutual_name
+								}
+					  break;
+					  case 5:
+					  setdata = {
+								  	name:data[i].name,
+									bg:"",
+									stage:"invalid",
+									stage_text:"Withdraw forcefully ",
+									insure_money:data[i].insure_money,
+									balance:data[i].balance,
+									insurance_id:data[i].insurance_id,
+									text_color:"peroid4",
+									mutual_name:data[i].mutual_name
+								}
+					  break;
+					}
+				 %>
+								<li class="protections <%= setdata.bg %>">
+                                    <div class="headimg-nick">
+                                        <div class="head">
+                                            <img src="../public/img/headportrait.png" alt="..">
+                                        </div>
+                                        <p>
+                                            <%= setdata.name %>
+                                        </p>
+                                    </div>
+                                    <div class="protection-details">
+                                        <div class="mutual-name">
+                                            <%= setdata.mutual_name %>
+                                                <span>Validate member</span>
+                                        </div>
+                                        <div class="account-details">
+                                            <div class="mutual-sum">Maximum mutual assistance amount<span class="sum-getx"><%= setdata.insure_money %> GETX</span></div>
+                                            <div class="mutual-balance">You account balance<span class="balance-getx"><% setdata.balance?setdata.balance=setdata.balance:setdata.balance='0' %><%= setdata.balance %> GETX</span></div>
+                                        </div>
+                                        <div class="about-mutual">
+                                            <a href="/getPersonalGuard/<%= setdata.insurance_id %>">Checking details</a>
+                                            
+												<% if(setdata.btntxt){ %>
+												<a href="/purchase?insurance=<%= setdata.insurance_id %>">
+													<%= setdata.btntxt %>
+												</a>
+												<% }else{ %>
+												<a href="/pay?insurance_id=<%= setdata.insurance_id %>">
+	                                            	Recharging now
+	                                            </a>
+	                                            <% }%>
+	                                        
+                                        </div>
+                                    </div>
+                                    <div class="stage">
+                                        <img src="../public/img/<%= setdata.stage %>.png" alt="">
+                                        <p class="peroid <%= setdata.text_color %>">
+                                            <%= setdata.stage_text %>
+                                        </p>
+                                        <a href="#" title=""></a>
+                                    </div>
+                                </li>
+			<% } %>
+		<% } %>
+		</ul>
+	</div>
+	<div class="my-protection-right">
+		<div class="member-sum">
+			<p>Total amount of member</p>
+			<div class="blue-sun">
+				<%= data.length %>
+			</div>
+
+		</div>
+		<!-- <h4>保险类保障</h4> -->
+		<div class="member-sum">
+			<p>Total amount of mutual assistance fund with maximum protection</p>
+			<div class="orangesun">
+				<% total_money?total_money:total_money=0 %>
+				<%= total_money %><p style="font-size: 14px;">GETX</p>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<script>
+	var odiv = '<div class="mutual-stage">\
+					<div class="mutual-stage-box">\
+						<div class="mutual-stage-body">\
+							<p>1.To be paid</p>\
+							<p>User submited their personal information but not process the payment.</p>\
+							<p>2.Waiting period</p>\
+							<p>The duration for waiting period are 30 days from the initial joining, the management fee will not be charge during this period. Users had the right to withdraw and if there is accidental occur within this period,user must contribute to the mutual assitance fund. However, user do not the right to receive mutual assitnace fund under this status</p>\
+							<p>3.Effective period</p>\
+							<p>participants will able to enjoy all mutual aid project benefits after the waiting period. Thus they will be charge managment fee under this status.</p>\
+							<p>4.Grace period</p>\
+							<p>If there are insufficent fund in the balance and once below the project requirement, all benefits will be cease. All benefits will be resume on the next business day if the participant balance had been recharged.</p>\
+							<p>5.Expiration date</p>\
+							<p>If the participant haven\'t recharge to minimum requirement within grace period, their benefits will be expired. Also if the participants will be over 61 years old, their benefits will also be expired at the first day next month</p>\
+							<p>6.Already withdraw</p>\
+							<p>The participants will enter into this status if they voluntarily withdraw or had already claim the mutual assistance fund.</p>\
+						</div>\
+					</div>\
+				</div>';
+
+	$('.stage a,.stage img').click(function(){
+		$('body').append(odiv);
+
+		$('.mutual-stage-box').click(function(){
+			$('.mutual-stage').remove();
+		})
+		$('.mutual-stage-body').click(function(){
+			event = event || window.event;
+			//阻止事件冒泡
+			event.stopPropagation ? event.stopPropagation() : event.returnValue = "false";
+		})
+	})
+</script>

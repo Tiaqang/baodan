@@ -1,0 +1,284 @@
+.nav_pc{
+	position: absolute;
+	width: 100%;
+	z-index: 1000000;
+}
+.main{
+	padding-bottom: 0;
+	width: 100%;
+}
+.swiper1{
+	width: 100%;
+}
+.swiper1 .swiper-slide img{
+	width: 100%;
+}
+.header_btn{
+	margin-bottom: 20px;
+}
+.swiper-pagination-bullet{
+	width: 40px;
+	height: 4px;
+	border-radius:0;
+	background: #b6bdca;
+}
+.swiper-pagination-bullet-active{
+	background: #4874eb;
+}
+.programs{
+	background-image: url("../../public/img/mid.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	text-align: center;
+	margin-top: 30px;
+	border-radius: 10px;
+}
+.swiper2{
+	width: 72%;
+	margin:0 auto;
+}
+.programs .swiper-button-prev{
+	left: 36px;
+	background-image:url("../../public/img/arrow-left.png");
+}
+.programs .swiper-button-next{
+	right: 36px;
+	background-image:url("../../public/img/arrow-right.png");
+}
+.swiper2 .swiper-slide{
+	height: 395px;
+}
+.swiper-slide-active{
+	background-image: url("../../public/img/circle-small1.png");
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+.swiper-slide-next{
+	background-image: url("../../public/img/circle-big.png");
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+.swiper-slide-next+.swiper-slide{
+	background-image: url("../../public/img/circle-small2.png");
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+.slide{
+	font-size: 16px;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	height: 100%;
+	justify-content: center;
+
+}
+.slide img{
+	margin-right: 20px;
+	margin-left: -20px;
+}
+.data{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap:wrap;
+	margin-top: 30px;
+	color:rgba(255,255,255,0.8);
+	font-size: 12px;
+}
+.data>div{
+	box-sizing: border-box;
+	position: relative;
+	width:375px;
+	height: 172px;
+	padding: 16px 20px 16px 12px;
+	margin-bottom: 50px;
+	border-radius: 16px;
+}
+.data1{
+	background: -webkit-linear-gradient(left bottom, #f790d9 , #9296fe); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(top right, #f790d9, #9296fe); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(top right, #f790d9, #9296fe); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to top right, #f790d9 , #9296fe); 
+}
+.data2{
+	background: -webkit-linear-gradient(left bottom, #52d2dd , #709dff); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(top right, #52d2dd, #709dff); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(top right, #52d2dd, #709dff); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to top right, #52d2dd , #709dff); 
+}
+.data3{
+	background: -webkit-linear-gradient(left bottom, #6ddab1 , #3bc1ed); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(top right, #6ddab1, #3bc1ed); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(top right, #6ddab1, #3bc1ed); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to top right, #6ddab1 , #3bc1ed); 
+}
+.data4{
+	background: -webkit-linear-gradient(left bottom, #ffaca5 , #ff8ac5); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(top right, #ffaca5, #ff8ac5); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(top right, #ffaca5, #ff8ac5); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to top right, #ffaca5 , #ff8ac5); 
+}
+.data_style{
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	line-height: 36px;
+    margin-top: 26px;
+}
+.data .num{
+	font-size: 36px;
+	font-weight: 600;
+	color: #fff;
+}
+.style_logo{
+	height: 24px;
+	width: 56px;
+	border-radius: 12px;
+	background-color:#ff8acc;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+.data3 .style_logo{
+	background-color:#10c469 ;
+}
+.data4 .style_logo{
+	background-color:#f05050 ;
+}
+.line{
+	margin-top: 30px;
+	height: 6px;
+	border-radius: 3px;
+	background-color:rgba(255,255,255,0.6);
+}
+#indicatorContainer{
+	position: absolute;
+	top: 44px;
+	right: 20px;
+}
+.footer{
+	margin-top: 30px;
+
+	height: 256px;
+	background-image: url("../../public/img/shape-left.png"),url("../../public/img/leadingplatform.png"),url("../../public/img/shape-right.png");
+	background-repeat: no-repeat,no-repeat,no-repeat;
+	background-position: left,center,right;
+}
+.activity{
+	position:absolute;
+	margin-left:60px;
+	width: 440px;
+}
+.act_title,.inv_title{
+	height: 80px;
+	display: flex;
+	align-items: center;
+	border-bottom: dashed 1px #ccc;
+	font-size: 20px;
+}
+.activity .jqqd,.invite .jqqd{
+	height: 80px;
+	display: flex;
+	align-items: center;
+	font-size: 12px;
+	color: #8a8a8a;
+}
+.activity .more,.invite .more{
+	height: 80px;
+	display: flex;
+	align-items: flex-end;
+}
+.activity .more>span,.invite .more>span{
+	display: inline-block;
+	margin-left: 12px;
+	width: 120px;
+	height: 50px;
+	border-radius: 25px;
+	background-color: #d3f9fc;
+	text-align: center;
+	line-height: 50px;
+	font-size: 12px;
+	color: #4cc4cd;
+	cursor: pointer;
+}
+.invite .more>span{
+	margin-left:60px;
+	background-color: #e2deff;
+	color: #b0a8ec;
+}
+.act_title>span,.activity .jqqd>span{
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	margin-left: 12px;
+	text-align: center;
+	line-height: 40px;
+}
+
+.invite{
+	position:absolute;
+	right: 0;
+	top: 0;
+	margin-right: 60px;
+	width: 440px;
+}
+
+.inv_title>span,.invite .jqqd>span{
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	margin-left: 40px;
+	text-align: center;
+	line-height: 40px;
+}
+.introduce{
+	font-size: 12px;
+	color: #fff;
+}
+.introduce .num{
+	font-size:24px;
+}
+.introduce .flag{
+	padding-top: 20px;
+}
+.introduce>div~div{
+	height:32px;
+	line-height: 32px;
+}
+.fs-16{
+	font-size: 16px;
+}
+
+@media screen and (max-width: 1500px) {
+    .data>div{
+    	width: 44%;
+    }
+}
+@media screen and (max-width: 900px) {
+	.link{
+		display: none;
+	}
+}
+@media screen and (max-width: 768px) {
+    .data>div{
+    	width: 100%;
+    }
+    .swiper2{
+    	width: 100%;
+    }
+    .swiper-button-prev,.swiper-button-next{
+    	display: none;
+    }
+    .swiper2 .swiper-slide{
+    	height: 260px;
+    }
+}
+@media screen and (max-width: 650px) {
+	.swiper-slide-active{
+		background-image: url("../../public/img/circle-big.png");
+	}
+}
+

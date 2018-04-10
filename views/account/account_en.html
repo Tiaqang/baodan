@@ -1,0 +1,59 @@
+<% layout('getx_layout_en.html') -%>
+<link rel="stylesheet" href="../public/stylesheets/account.css">
+
+	
+<article>
+	<ul class="breadcrumb">
+        <li>Your current location:</li>
+        <li class=""><a href="/personal">Account summary</a></li>
+        <li class="active">My account</li>
+    </ul>
+	<section>
+		<div class="header">
+			<img class="img-responsive" src="../public/img/account_bg.png" alt="">
+			<span class="personal text-center">
+				<span class="sculpture">
+					<img src="../public/img/sculpture.png" alt="">
+				</span>
+				<div class="personal_account">
+					<div class="title">My account</div>
+					<div class="email"><%-email%></div>
+				</div>
+			</span>			
+		</div>
+		<div class="con_text">
+			<div class="my_preferential">
+				<div class="history_link text-right">
+					<a href="/account/preferential">Checking historical transaction></a>
+				</div>
+				<div class="account_total text-center">
+					<div class="title">
+						My discount account
+					</div>
+					<div>
+						  total amount of GETX as gift: <span class="preferential_num"><%-gave_num%></span>GETX
+					</div>
+				</div>
+
+			</div>
+			<div class="my_account">
+				<div class="history_link text-right">
+					<a href="/account/pay_record">Checking historical transaction></a>
+				</div>
+				<div class="account_total text-center">
+					<div class="title">
+						My mutual aid project account
+					</div>
+					<div>
+						  Account balance for all mutual project: <span class="account_num"><%-account_num%></span>GETX
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</article>
+	
+</div>
+<script>
+	
+</script>

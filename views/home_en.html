@@ -1,0 +1,49 @@
+<% layout('getx_layout_en.html') -%>
+<link href="../public/stylesheets/index.css" rel="stylesheet">
+        <header>
+            <!--首页顶部轮播 -->
+            <div>
+                <div class="swiper-container swiper1">
+                    <div class="swiper-wrapper">
+                        <!-- <div class="swiper-slide" style="cursor:pointer;" onclick="jumpTo(1)"><img class="img-responsive" src="../../public/img/banner1.png" alt=""></div>
+                        <div class="swiper-slide" style="cursor:pointer;" onclick="jumpTo(1)"><img class="img-responsive" src="../../public/img/banner2.png" alt=""></div> -->
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </header>
+<script type="text/javascript">
+    var swiper1=new Swiper(".swiper1",{
+        pagination: {
+            el: '.swiper-pagination',
+            clickable :true,
+        },
+        autoplay:false,
+        loop:true,
+        lazy: {
+            loadPrevNext: true,
+        },
+        speed:3000,
+        init:false
+    })
+    var width=document.documentElement.clientWidth;
+
+    var height=document.documentElement.clientHeight;
+    if(width>800){
+        $('<div class="swiper-slide" style="cursor:pointer;" onclick="jumpTo(1)"><div style="background-image:url(../../public/img/banner1_en.png);background-repeat:no-repeat;background-size:100% 100%;width:100%;height:'+height+'px;"></div></div>').appendTo('.swiper1 .swiper-wrapper')
+    }else{
+       $('<div class="swiper-slide" style="cursor:pointer;" onclick="jumpTo(1)"><div style="background-image:url(../../public/img/banner_min1_en.png);background-repeat:no-repeat;background-size:100% 100%;width:100%;height:'+height+'px;"></div></div>').appendTo('.swiper1 .swiper-wrapper');
+       
+    }
+    //停止轮播
+    //swiper1.init()
+    $('#indicatorContainer').radialIndicator({
+        barColor: '#58c8e4',
+        barWidth:6,
+        initValue:80,
+    });
+    function jumpTo(id){
+        console.log(1)
+        window.location.href='/product?program_id='+id
+    }
+</script>

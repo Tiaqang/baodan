@@ -1,0 +1,103 @@
+*{
+	box-sizing: border-box;
+}
+html,body,.contain{
+	height: 100%;
+}
+.contain{
+	background-color:#f5f6fa;
+}
+.nav_pc{
+	background-color:#fff; 
+}
+article{
+	background-color: #fff;
+	padding-bottom:4%; 
+}
+.header{
+	position: relative;
+}
+.personal{
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.sculpture img{
+	width: 50%
+}
+.personal_account{
+	color: #fff;
+	text-align: left;
+}
+.personal_account .title{
+	font-size:20px;
+	margin-bottom: 10px;
+}
+.con_text{
+	margin-top:30px;
+	font-size: 0;
+}
+.con_text>div{
+	display: inline-block;
+	width: 50%;
+	font-size: 20px;
+}
+.history_link a{
+	margin-right: 10%;
+	text-decoration: none;
+	font-size: 14px;
+	color:#9c9c9c;
+}
+.con_text .title{
+	color: #4d81fe;
+	font-size: 20px;
+}
+
+.con_text .title+div{
+	margin-top: 8px;
+	color: #b6b6b6;
+	font-size:16px;
+}
+.my_preferential .account_total{
+	border-right: 1px solid #b6b6b6;
+}
+
+@media screen and (max-width: 1200px){
+	.header>img{
+		width: 100%;
+		height: 120px;
+	}
+	.con_text .title{
+		font-size: 16px;
+	}
+	.con_text .title+div{
+		font-size: 14px;
+	}
+}
+@media screen and (max-width: 768px){
+	article{
+		padding-bottom: 0;
+	}
+	.history_link a{
+		margin-right:4%;
+	}
+	.con_text>div{
+		display: block;
+		width: 100%;
+		margin-top: 20px;
+		padding-bottom: 20px;
+		background-color: #fff;
+	}
+	.con_text{
+		background-color: #f5f6fa;
+	}
+}
+@media screen and (max-width: 400px){
+	.history_link a{
+		margin-right: 0;
+	}
+}

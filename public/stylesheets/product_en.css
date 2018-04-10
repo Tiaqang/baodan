@@ -1,0 +1,360 @@
+.top{
+	background-repeat: no-repeat;
+	background-size: cover;
+	text-align: center;
+	color: #fff;
+	line-height: normal;
+	letter-spacing: 4px;
+	position: relative;
+	
+}
+.img_mobile{
+	display: none;
+}
+.fs_24{
+	font-size: 24px;
+}
+.fs_100{
+	font-size: 100px;
+}
+.fs_36{
+	font-size: 36px;
+}
+.join_btn{
+	position: absolute;
+	width: 100%;
+	bottom: 20px;
+	text-align: center;
+}
+.join{
+	display: inline-block;
+	width:360px;
+	height: 50px;
+	line-height: 50px;
+	font-size: 16px;
+	border-radius: 50px;
+	border:1px solid #d7def0;
+	cursor: pointer;
+	margin-top:50px;
+}
+
+
+.introduction{
+	display: flex;
+	justify-content: space-between;
+}
+.introduce{
+	box-sizing: border-box;
+	width: 42.22%;
+	min-height: 390px;
+	background-color: #fff;
+	border-radius: 10px;
+	border:1px solid #eeeff1;
+	background-image: url('../../../public/img/introduct_bg.png');
+	background-repeat: no-repeat;
+	background-position: bottom;
+	background-size: 100% 60%;
+}
+.introduce .title,.introduce .content{
+	margin: auto 32px;
+	padding:10px 0;
+	display: flex;
+	align-items: center;
+	font-size: 20px;
+	color: #7c7c7c;
+	line-height: normal;
+}
+.introduce .title img{
+	margin-right:8px;
+}
+.introduce .content{
+	font-size:12px;
+	text-align: justify;
+	text-indent: 24px;
+	line-height: 24px;
+}
+
+.regular{
+	box-sizing: border-box;
+	padding:10px 24px 0 48px;
+	width: 54.44%;
+	min-height: 390px;
+	background-color: #fff;
+	border-radius: 10px;
+	border:1px solid #eeeff1;
+}
+.regular>.title{
+	display: flex;
+	align-items: flex-end;
+	padding-bottom: 12px;
+	font-size: 20px;
+	color: #7c7c7c;
+	line-height: normal;
+	justify-content: space-between;
+}
+.regular>.title,.introduce .title,.normal_question .title{
+	border-bottom: 2px solid #eeeff1;
+}
+.regular>.title>span>img{
+	margin-right: 8px;
+}
+.regular .detail{
+	font-size:12px;
+	color:#4c84ff;
+	font-weight: bold;
+	cursor: pointer;
+}
+.regular .content{
+	margin-top:10px; 
+	font-size:12px;
+	text-align: justify;
+	line-height: 24px;
+	color: #7c7c7c;
+}
+.regular .content .title{
+	font-size: 14px;
+	color:#4774eb;
+	font-weight: bold;
+}
+.regular .content .body{
+	text-indent: 12px;
+	padding-right:12px;
+}
+.regular .rule_item{
+	margin-top: 24px;
+	color: #636363;
+}
+.rule_item li{
+	margin: 8px;
+}
+article{
+	padding-top: 30px;
+}
+.int_main{
+	/*width: 55.83%;
+	float: left;*/
+
+}
+
+.normal_question{
+	margin-top: 30px;
+	background-color: #fff;
+	border-radius: 10px;
+	padding: 0 24px;
+	color: #fff;
+	border:1px solid #eeeff1;
+}
+.normal_question .title{
+	height: 60px;
+	display: flex;
+	align-items: center;
+	color:#7c7c7c;
+	font-size: 20px;
+}
+.normal_question .title img{
+	margin-right: 8px;
+	margin-left: 16px;
+}
+.normal_question .content{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap:wrap;
+}
+.normal_question .content>div{
+	box-sizing: border-box;
+	margin-top: 16px;
+    width: 46.77%;
+    height: 182px;
+    padding: 32px 26px 0;
+    border-radius: 40px;
+    background-image: url(../../public/img/bg-small.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.normal_question .content>div:nth-child(3){
+	padding: 32px 0 0 26px;
+}
+.normal_question .answer{
+	margin-top: 12px;
+	font-size: 12px;
+	
+}
+.remark{
+	color: #6284f3;
+	text-align: center;
+	font-size: 14px;
+	padding: 8px 0 20px;
+}
+.e_table{
+	box-sizing: border-box;
+	/*width:37.22%;
+	float:right; */
+	margin-top: 30px;
+	border-radius: 10px;
+	border:1px solid #eeeff1;
+	/*height: 926px;*/
+	background-color: #fff;
+	background-image: url(../../public/img/bottom_bg.png);
+	background-repeat:no-repeat;
+	background-size: cover;
+	background-position: center center;
+}
+.e_table .title{
+	text-align: center;
+	margin-top:50px;
+	font-size: 14px;
+	color: #c9c9c9;
+	line-height: normal;
+}
+
+.e_table .title p{
+	margin: 0;
+	padding-top: 4px;
+}
+
+.e_table .title .mark{
+	font-size: 24px;
+	color: #6a97ff;
+	background-color: initial;
+}
+.e_table .table_body{
+	width: 100%;
+	height: 500px;
+	margin: 0 auto;
+}
+.table_title{
+	margin:50px 0 66px;
+	color: #c9c9c9;
+	font-size: 20px;
+	text-align: center;
+}
+@media screen and (max-width: 1612px) {
+
+	.normal_question .content>div{
+		height: 230px;
+	}
+}
+
+@media screen and (max-width: 1600px) {
+    .e_table{
+    	float: none;
+    	clear: both;
+    	width: 100%;
+    	position: relative;
+    	top: 30px;
+    }
+    .int_main{
+    	width: 100%;
+    }
+} 
+@media screen and (max-width: 1400px) {
+
+	.normal_question .content>div{
+		height: 250px;
+	}
+	.remark{
+		text-align: justify;
+	}
+}
+
+@media screen and (max-width: 996px){
+	.join{
+		width: 30%;
+		height: 40px;
+    	line-height: 36px;
+	}
+	.normal_question .content>div{
+		width: 100%;
+		height: 200px;
+	}
+}
+
+@media screen and (max-width: 768px){
+	.join{
+		width: 24%;
+		height: 30px;
+    	line-height: 28px;
+	}
+	.introduction{
+		flex-wrap: wrap;
+	}
+	.introduce{
+		margin-bottom: 30px;
+		width: 100%;
+	}
+	.regular{
+		width: 100%;
+	}
+	.normal_question .content>div{
+		height: 230px;
+	}
+	.normal_question{
+		padding: 0 8px;
+	}
+	.introduce .title, .introduce .content{
+		margin:auto 12px;
+	}
+	.regular{
+		padding: 10px 12px 0;
+	}
+}
+
+@media screen and (max-width: 700px){
+	.img_pc{
+		display: none;
+	}
+	.img_mobile{
+		display: block;
+	}
+	.join{
+		width: 48%;
+		height: 60px;
+    	line-height: 56px;
+    	font-size: 16px;
+	}
+	.join_btn{
+		bottom: 60px
+	}
+	.introduce{
+		background-size: 100% 50%;
+	}
+
+}
+
+@media screen and (max-width: 600px){
+	.regular .rule_item{
+		margin-top: 16px;
+	}
+	
+	.normal_question .content>div{
+		height: 260px;
+	}
+	.introduce{
+		background-size:100% 46% ;
+	}
+}
+@media screen and (max-width: 390px){
+	.normal_question{
+		padding: 0;
+	}
+	.regular{
+		padding:10px 6px 0 12px;
+	}
+	.join{
+		width: 60%;
+		height: 40px;
+    	line-height: 36px;
+    	font-size: 16px;
+	}
+	.join_btn{
+		bottom: 40px
+	}
+	.normal_question .content>div{
+		height: 320px;
+	}
+	.introduce{
+		background-size: 100% 32%;
+	}
+}
+

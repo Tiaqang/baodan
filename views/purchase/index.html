@@ -1,0 +1,421 @@
+<% layout('getx_layout.html') -%>
+
+<link href="../public/stylesheets/purchase.css" rel="stylesheet">
+    <!--导航-->  
+    <ul class="breadcrumb">
+        <li>您当前的位置：</li>
+        <li class=""><a href="/product?program_id=<%-program_id%>">互助详情</a></li>
+        <li class="active">加入互助</li>
+    </ul>
+    <article class="clearfix">
+        <section class="steps">
+            <div class="step1">
+                <span class="num">1</span>
+                <span>填写资料</span>
+            </div>
+            <div class="step2">
+                <span class="num">2</span>
+                <span>保障单支付</span>
+            </div>
+            <div class="step3">
+                <span class="num">3</span>
+                <span>加入计划成功</span>
+            </div>
+        </section>
+        <section class="info_list">
+            <div class="title" object_id="<%-program_id%>">加入保链意外互助计划</div>
+            <!-- <div style="font-size:12px;color:#ec5252;height: auto;border:none;"> * 为必填项!</div> -->
+            <div class="explain">为了保证计划的真实性,我们要求每一位加入计划的会员填写真实的信息。有效证件是您保障的唯一凭据，平台将保证您的信息绝不外泄。</div>
+            <div>
+                <label class="icon_name" for="name"></label>
+                <input  id="name" type="text" name="name" value="" class="name" autocomplete="off" placeholder="请输入保障人姓名" onchange="change_val(this)">
+                <span class="bitian">*</span>
+            </div>
+            <div class="confirm_box">
+                <label class="icon_name"></label>
+                <span class="text">姓名</span>
+            </div>
+            <div class="relation">
+                <label class="icon_relation"></label>
+                <span class="relation_content text" object_id=''>请选择保障人与本人关系</span>
+                <span class="dropdown relation_list"></span>
+                <span class="bitian">*</span>
+                <ul class="dropdown_box">
+                    <li object_id='1'>本人</li>
+                    <li object_id='2'>配偶</li>
+                    <li object_id='3'>父母</li>
+                    <li object_id='4'>子女</li>
+                    <li object_id='5'>其他亲戚</li>
+                    <li object_id='6'>同事</li>
+                    <li object_id='7'>朋友</li>
+                    <li object_id='8'>其他关系</li>
+                </ul>
+            </div>
+            <div class="confirm_box">
+                <label class="icon_relation"></label>
+                <span class="">关系</span>
+            </div>
+            <div class="">
+                <label class="icon_sex"></label>
+                <span class="sex text" object_id=''>请选择保障人性别</span>
+                <span class="dropdown nation_list"></span>
+                <span class="bitian">*</span>
+                <ul class="dropdown_box">
+                    <li object_id='1'>男</li>
+                    <li object_id='2'>女</li>
+                </ul>
+            </div>
+            <div class="confirm_box">
+                <label class="icon_sex"></label>
+                <span class="">性别</span>
+            </div>
+            <div class="birthday_box">
+                <label class="icon_date" for="birth"></label>
+                <label id="for_birth" for='birth' class="email">请输入保障人出生日期</label>
+                <input id="birth" style="display: none" type="text" autocomplete="off" name="birth" value="" class="birth" placeholder="请输入保障人出生日期" onchange="change_val(this)">
+                 <span class="bitian">*</span>
+            </div>
+            <div class="confirm_box">
+                <label class="icon_date"></label>
+                <span class="">出生日期</span>
+            </div>
+            <div class="">
+                 <label class="icon_nation"></label>
+                <span class="nation text" object_id=''>请输入保障人国籍</span>
+                <span class="dropdown nation_list"></span>
+                <span class="bitian">*</span>
+                <ul class="dropdown_box">
+                    <%nation.forEach(function(v){%>
+                        <li object_id="<%-v.id%>"><%-v.name%></li>
+                    <%})%>
+                </ul>
+            </div>
+            <div class="confirm_box">
+                <label class="icon_nation"></label>
+                <span class="">国籍</span>
+            </div>
+            <div>
+                <label class="icon_id" for="identity_n"></label>
+                <input id="identity_n" autocomplete="off" type="text" name="identity_n" value="" class="identity_n" placeholder="请输入保障人证件号码" onchange="change_val(this)">
+                <span class="bitian">*</span>
+            </div>
+            <div class="confirm_box">
+                <label class="icon_id"></label>
+                <span class="">证件号码</span>
+            </div>
+             <div>
+                <label class="icon_email" for="email"></label>
+                <input id="email" type="text" name="email" class="email" autocomplete="off" placeholder="请输入保障人邮箱(选填)" onchange="change_val(this)">
+            </div>
+            <div class="confirm_box">
+                <label class="icon_email"></label>
+                <span class="">邮箱</span>
+            </div>
+            
+            
+            <div>
+                <label class="icon_mobile" for="mobile"></label>
+                <input id="mobile" type="text" name="mobile" class="mobile" placeholder="请输入保障人电话(选填)" autocomplete="off" onchange="change_val(this)">
+            </div>
+            <div class="confirm_box">
+                <label class="icon_mobile"></label>
+                <span class="">电话号码</span>
+            </div>
+            
+            <div class="no_boder">
+                <div class="submit_btn">下一步</div>
+            </div>
+
+            <div class="confirm_box no_boder">
+                <div class="confirm_btn">下一步</div>
+            </div>
+            <div class="confirm_box">
+                <div class="back_btn">返回修改</div>
+            </div>
+            
+            <div class="check_box">
+                <div>
+                      <input type="checkbox" name="checkbox" class="checkbox user_read">
+                      为加入本计划，您需要仔细阅读并如实承诺以下事项。若申请人存在以下任一情况，将不能参加本计划。若申请人未如实告知其中任何一项情况，将来申请互助时，保链互助平台将按规定拒绝互助申请。              
+                </div> 
+                <div class="article_link">
+                       <a href="/doc?doc_id=3">《保链互助会员公约》</a>          
+                       <a href="/doc?doc_id=1">《意外互助计划健康告知》</a>          
+                       <a href="/doc?doc_id=2">《保链意外互助计划规则》</a>         
+                </div>               
+            </div>
+        </section>
+    </article>
+    <input type="text" style="display:none" class="insurance_id" name="" value="<%- insurance_id%>">
+<script type="text/javascript">
+    //根据insurance_id 判断用户来源
+
+
+    var insurance_id=$('.insurance_id').val();
+
+    if(insurance_id){
+        //保单id存在
+        $.post('/purchase/insuranceInfo',{'insurance_id':insurance_id},function(rescnt){
+            //获取保单信息并同步至页面
+            rescnt=JSON.parse(rescnt)
+            if(rescnt.status==0){
+                var data=rescnt.resMsg;
+                console.log(data)
+                $('.name').val(data.name).parents('div').next('.confirm_box').find('span').html(data.name);
+                $('.relation_content').html($('.relation [object_id='+data.relationship+']').html()).css('color','#000');
+                $('.relation_content').attr('object_id',data.relationship);
+                $('.relation_content').parents('div').next('.confirm_box').find('span').html($('.relation [object_id='+data.relationship+']').html());
+                $('.sex').html($('.sex~.dropdown_box [object_id='+data.sex+']').html()).css('color','#000');
+                $('.sex').attr('object_id',data.sex);
+                $('.sex').parents('div').next('.confirm_box').find('span').html($('.sex~.dropdown_box [object_id='+data.relationship+']').html());
+                $('.nation').html($('.nation~.dropdown_box [object_id='+data.country+']').html()).css('color','#000');
+                $('.nation').attr('object_id',data.country);
+                $('.nation').parents('div').next('.confirm_box').find('span').html($('.nation~.dropdown_box [object_id='+data.relationship+']').html())
+                $('.email').val(data.email).parents('div').next('.confirm_box').find('span').html(data.email);
+                $('.mobile').val(data.phone).parents('div').next('.confirm_box').find('span').html(data.phone);
+                $('.identity_n').val(data.identify_id).parents('div').next('.confirm_box').find('span').html(data.identify_id);
+                $('.for_birth').html(data.birthday);
+                $('.birth').val(data.birthday).parents('div').next('.confirm_box').find('span').html(data.identify_id);
+            }
+        })
+
+    }
+
+
+
+
+
+    var height=document.documentElement.clientHeight;
+    $('.contain').css('min-height',height)
+    $('span.dropdown').parent().click(function(e){
+        e.stopPropagation()
+        $('.main')[0].addEventListener('click',hide_dropdown_box,true)
+        $(this).find('.dropdown_box').show()
+
+        $('.dropdown_box').on('click','li',function(e){
+            $(this).parent().siblings('span.text').html($(this).html()).attr('object_id',$(this).attr('object_id')).css('color','#000');
+            $(this).parent().parent().next().find('span').html($(this).html());
+            e.stopPropagation();
+            $(this).parent().hide();
+        })
+        
+    })
+    function hide_dropdown_box(e){
+        //e.stopPropagation();
+        $('.dropdown_box').hide();
+        $('.main')[0].removeEventListener('click',hide_dropdown_box,true)
+
+    }
+    if(IsPC()){
+
+        $('#for_birth').hide();
+        $('#birth').css('display','initial');
+        $('#birth').focus(function(){
+           this.blur();
+            $(this).prop('type','date').prop('autofocus','true');
+        })
+
+        $('#birth').blur(function(){
+            var obj = $(this);
+            if(!obj.val()){
+                obj.prop('type','text');
+            }
+        });
+    }else{
+
+        $('.birthday_box').click(function(){
+            console.log(1)
+            $('#for_birth').hide();
+            $('#birth').prop('type','date')
+            $('#birth').show();
+            $('#birth').prop('autofocus','true')
+        })
+        $('#birth').blur(function(){
+            if(!$(this).val()){
+                $('#for_birth').css('display','inline-flex')
+                $('#birth').hide();
+            }
+        })
+       
+    }
+
+    $('.submit_btn').click(function(){
+
+        //用户输入验证
+        var program=$('.title').attr('object_id')
+        var name=$('input.name').val();
+        var email=$('input.email').val();
+        var phone=$('input.mobile').val();
+        var birth=$('input.birth').val();
+        var identity_n=$('input.identity_n').val();
+        var nation=$('.nation').attr('object_id');
+        var relation=$('.relation_content').attr('object_id')
+        var sex=$('.sex').attr('object_id')
+
+        if(relation==''){
+            toast('请选择参与互助计划者与您的关系')
+            return
+        }
+        if(name==''){
+            toast('请填写参与的互助计划者的姓名')
+            return
+        }else{
+            var reg=/^[0-9]/
+
+            if(reg.test(name)){
+                toast('姓名格式错误')
+                return
+            }
+        }
+        if(birth==''){
+            toast('请填写参与的互助计划者的出生日期')
+            return
+        }
+
+        var date=new Date(birth);
+
+        var date16=new Date(date.getFullYear()+16,date.getMonth(),date.getDate())
+
+        var date60=new Date(date.getFullYear()+60,date.getMonth(),date.getDate())
+
+        var now=new Date();
+
+        //年龄16-60周岁判定
+
+        if(now >date60||now<date16){
+            toast('您的年龄不满足加入互助计划要求')
+            return
+        }
+
+        if(sex==''){
+            toast('请选择参与互助计划者性别')
+            return
+        }
+         if(identity_n==''){
+            toast('请填写参与的互助计划者的证件号码')
+            return
+        }
+        if(nation==''){
+            toast('请选择参与的互助计划者的国籍')
+            return
+        }else if(nation==1){
+            //国籍为中国时 进行证件号码判定
+            var reg=/(^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$)|(^[1-9]\d{5}\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{2}$)/
+            if(!reg.test(identity_n)){
+                toast('证件号码格式错误')
+                return
+            }
+        }else{
+            //其他国籍 证件号验证
+
+            //匹配6位顺增或顺降  
+            var  pattern1 = /(?:(?:0(?=1)|1(?=2)|2(?=3)|3(?=4)|4(?=5)|5(?=6)|6(?=7)|7(?=8)|8(?=9)){3}|(?:9(?=8)|8(?=7)|7(?=6)|6(?=5)|5(?=4)|4(?=3)|3(?=2)|2(?=1)|1(?=0)){3})\d/;
+            //匹配 3位以上重复数字
+            var pattern2 =/([\d])\1{3}/;
+
+            //匹配连同号如“112233”“222333”
+            var pattern3=/([\\d])\1{1,}([\\d])\\2{2,}/
+
+
+
+            if(pattern1.test(identity_n)||pattern2.test(identity_n)||pattern3.test(identity_n)||identity_n.length<=8){
+                toast('证件号码格式错误')
+                return
+            }
+        }
+        if(email!=''){
+            var reg=/^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/
+
+            if(!reg.test(email)){
+                toast('邮箱格式错误')
+                return
+            }
+        }
+
+        if(!$('.checkbox')[0].checked){
+            toast('请先阅读并勾选保链互助说明');
+            return
+        }
+        $('.title').html('信息确认')
+        $('.info_list>div').toggle();
+        $('.title').show()
+    })
+    $('.back_btn').click(function(){
+        $('.title').html('加入保链互助会员')
+        $('.info_list>div').toggle();
+        $('.title').show()
+    })
+    $('.confirm_btn').click(function(){
+        //提交信息给后台验证并存储
+        var program=$('.title').attr('object_id')
+        var name=$('input.name').val();
+        var email=$('input.email').val();
+        var phone=$('input.mobile').val();
+        var birth=$('input.birth').val();
+        var identity_n=$('input.identity_n').val();
+        var nation=$('.nation').attr('object_id');
+        var relation=$('.relation_content').attr('object_id')
+        var sex=$('.sex').attr('object_id')
+        //信息验证
+        /*if(relation==''){
+            toast('请选择参与互助计划者与您的关系')
+            return
+        }
+        if(sex==''){
+            toast('请选择参与互助计划者性别')
+            return
+        }
+        if(nation==''){
+            toast('请选择参与的互助计划者的国籍')
+            return
+        }
+        if(name==''){
+            toast('请填写参与的互助计划者的姓名')
+            return
+        }
+        if(email==''){
+            toast('请填写参与的互助计划者的邮箱')
+            return
+        }
+        if(phone==''){
+            toast('请填写参与的互助计划者的电话')
+            return
+        }
+        if(birth==''){
+            toast('请填写参与的互助计划者的出生日期')
+            return
+        }
+        if(identity_n==''){
+            toast('请填写参与的互助计划者的证件号码')
+            return
+        }*/
+        var data={'program_id':1,'sex':sex,'relation':relation,'nation':nation,'name':name,'email':email,'phone':phone,'birth':birth,'identity_n':identity_n,'insurance_id':insurance_id}
+        $.post('/purchase',data,function(rescnt){
+            
+            if(rescnt.status==0){
+                window.location.href='/pay?insurance_id='+rescnt.resMsg
+            }
+            else{
+                toast(rescnt.errMsg)
+            }
+            //判断是否验证成功 若成功则跳转支付页 若失败提示错误信息
+        })
+    })
+    function change_val(event){
+        $(event).parent().next().find('span').html($(event).val())
+    }
+//说明文档弹出层
+    /*$(".article_link a").click(function(e){
+        console.log($(this).index())
+        if($(this).index()==0){
+            $('.doc_1').show()
+        }else if($(this).index()==2){
+            $('.doc_2').show()
+        }else{
+            $('.doc_3').show()
+        }
+    })*/
+    function cancel(e){
+        $(e).parents('.pupup_window').hide()
+    }
+</script>

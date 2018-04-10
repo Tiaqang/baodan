@@ -1,0 +1,63 @@
+<% layout('getx_layout.html') -%>
+<link rel="stylesheet" href="../public/stylesheets/pay_record.css">
+<article>
+	<ul class="breadcrumb">
+        <li>您当前的位置：</li>
+        <li class=""><a href="/personal">个人中心</a></li>
+        <li class=""><a href="/account">我的账户</a></li>
+        <li class="active">充值记录</li>
+    </ul>
+	<section class="pc_show">
+		<div class="title">历史支付/充值记录</div>
+		<%if(rescnt.status==1){%>
+			<table>
+				<thead>
+					<tr>
+						<th>序号</th>
+						<th>操作类型</th>
+						<th>交易时间</th>
+						<th>区块号</th>
+						<th>交易摘要</th>
+						<th>状态</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<%rescnt.data.forEach(function(v,k){%>
+						<tr>
+							<td><%- k*1+1%></td>
+							<td><%- v.pay_type==1?'购买':'充值'%></td>
+							<td><%- v.create_date%></td>
+							<td><%- v.block_num?v.block_num:''%></td>
+							<td><%- v.block_transactionhash?v.block_transactionhash:''%></td>
+							<td><%- v.block_num?'已写入区块链':'正在写入区块链'%></td>
+							<td>
+								<a href="https://rinkeby.etherscan.io/tx/<%- v.block_transactionhash%>" target='_blank'>查看</a>
+							</td>
+						</tr>
+					<%})%>
+				</tbody>
+			</table>
+		<%}%>
+	</section>
+	<section class="mobile_show">
+		<%if(rescnt.status==1){%>
+		<%rescnt.data.forEach(function(v,k){%>
+			<div class="item">
+				<div><span>序号:</span><span class="text"><%- k*1+1%></span></div>
+				<div><span>操作类型: </span><span class="text"><%- v.pay_type==1?'购买':'充值'%></span></div>
+				<div><span>操作时间: </span><span class="text"><%- v.create_date%></span></div>
+				<div><span>区块号: </span><span class="text"><%- v.block_num?v.block_num:''%></span></div>
+				<div><span>交易摘要：</span><span class="text"><%- v.block_transactionhash?v.block_transactionhash:''%></span></div>
+				<div><span>状态: </span><span class="text"><%- v.block_num?'已写入区块链':'正在写入区块链'%></span></div>
+				<div><span>操作: </span><span class="text"><a href="https://rinkeby.etherscan.io/tx/<%- v.block_transactionhash%>" target='_blank'>查看</a></span></div>
+			</div>
+		<%})%>
+		<%}%>
+	</section>
+</article>
+	
+</div>
+<script>
+	
+</script>

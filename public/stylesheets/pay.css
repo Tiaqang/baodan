@@ -1,0 +1,225 @@
+
+body{
+	background:#f5f6fa;
+}
+.nav_pc{
+	background-color: #fff;
+}
+article{
+	background-color: #fff;
+}
+section{
+	/*box-shadow: 1px 0px 10px 0px #ccc,-1px 0px 10px 0px #ccc;*/
+	border-bottom-left-radius: 16px;
+	border-bottom-right-radius: 16px;
+	background-color: #fff;
+	padding-bottom: 10px;
+}
+.breadcrumb{
+	margin-bottom: 0;
+}
+.steps{
+	text-align: center;
+	width: 80%;
+	margin:0 auto 20px;
+	border-bottom: 1px solid #eeeff1;
+	font-size:20px;
+
+}
+.steps>div{
+	display: inline-flex;
+	width: 20%;
+	align-items: center;
+	justify-content: center;
+	height: 80px;
+
+}
+.steps .num{
+	display: inline-flex;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	align-items: center;
+	justify-content: center;
+	background-color:#e4e4e4;
+	color: #fff;
+	margin-right: 10px;
+}
+.step2 .num,.step1 .num{
+	background-color:#4786ff;
+}
+.choose_num,.choose_type,.preferential{
+	padding: 1.2% 11% 0;
+}
+.choose_num .title,.choose_type .title,.preferential .title{
+	padding-bottom: 4px;
+	color: #7c7c7c;
+	font-size: 16px;
+	height: 24px;
+	display: flex;
+    align-items: flex-end;
+    border-bottom: 1px dashed #eeeff1
+}
+
+.color_red{
+	color: #fe0000;
+	font-size: 12px;
+}
+.num_list{
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 12px;
+}
+.choose_num .item,.choose_type .item,.preferential .item{
+	box-sizing: border-box;
+	width:20%;
+	height:120px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 20px;
+	color: #4c84ff;
+	border: 1px solid #e5e5e5;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-bottom: 8px;
+}
+.choose_num .num_list{
+	justify-content: space-between;
+}
+
+.choose_num .item{
+	margin-right:0;
+}
+
+.item{
+	margin-right: 6.666%
+}
+.choose_num .item:last-child{
+	color: #d7d6d5;
+	font-size: 20px;
+}
+.item .font24{
+	font-size:24px;
+}
+.confirm_btn{
+	margin: 40px auto;
+	width: 20%;
+	height:36px;
+	border-radius: 5px;
+	background-color:#4c84ff;
+	line-height: 36px;
+	text-align: center;
+	color: #fff;
+	cursor: pointer;
+}
+.choose_num .active_item,.choose_type .active_item,.preferential .active_item{
+	background-image: url(../../public/img/pay/select.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: center center;
+	border: none;
+}
+.num_inp{
+	width: 100px;
+	border: solid 1px;
+	color: #4c84ff;
+}
+
+.num_inp::-webkit-outer-spin-button,.num_inp::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+}
+.num_inp{
+	-moz-appearance: textfield;
+}
+.other_num{
+	display: none;
+}
+.other_num label{
+	font-weight: normal;
+	color: #4c84ff;
+}
+
+.layer_success{
+	border-radius: 8px;
+}
+.layer_title{
+	background-color:#4874eb;
+	height: 86px;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	font-size: 16px;
+}
+@media screen and (max-width: 1600px) {
+	.steps>div{
+		height: 60px;
+	}
+	.steps{
+		font-size: 16px;
+		margin:0 auto 10px;
+	}
+	.steps>div{
+		width: 24%;
+	}
+	.choose_num .title, .choose_type .title, .preferential .title{
+		font-size: 14px;
+	}
+	.choose_num .item, .choose_type .item, .preferential .item{
+		height: 100px;
+	}
+	.item .font24{
+		font-size: 20px;
+	}
+	.confirm_btn{
+		margin: 10px auto;
+	}
+}
+@media screen and (max-width: 1200px) {
+	.choose_num .item, .choose_type .item, .preferential .item{
+		width:30%;
+		height:100px;
+	}
+}
+@media screen and (max-width: 768px) {
+	.choose_num .item, .choose_type .item, .preferential .item{
+		width:44%;
+		height:100px;
+	}
+	.choose_type .item{
+		margin-right: 0;
+	}
+	.choose_type .num_list{
+		justify-content: space-between;
+	}
+	.confirm_btn{
+		width: 30%;
+	}
+}
+@media screen and (max-width: 500px) {
+	.choose_num .item, .choose_type .item, .preferential .item{
+		width:100%;
+		height:80px;
+	}
+	.choose_num, .choose_type, .preferential{
+		padding: 3.2% 4% 0;
+	}
+	.confirm_btn{
+		width: 40%;
+	}
+}
+@media screen and (max-width: 500px) {
+	.choose_num .title *{
+		display: block;
+	}
+	.choose_num .title{
+		flex-wrap: wrap;
+		height: auto;
+	}
+	.confirm_btn{
+		width: 50%;
+	}
+}

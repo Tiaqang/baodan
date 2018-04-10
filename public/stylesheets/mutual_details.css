@@ -1,0 +1,81 @@
+.mutual_name{
+	padding: 2% 0 ;
+	text-align: center;
+	/*font-weight: bold;*/
+	font-size: 20px;
+	color: #fff;
+	background: url(../img/assistance_bg.png) no-repeat;
+	background-size: cover;
+}
+.mutual_name img{
+	display: block;
+	margin: 0 auto;
+	margin-bottom: 5px;
+}
+.mutual_title h3{
+	text-align: center;
+	margin-top: 20px;
+	color: #7c808b;
+}
+.mutual_code{
+	width: 60%;
+	margin: 0 auto;
+	font-size: 16px;
+	color: #aaa;
+}
+.main .mutual-data{
+	color: #596daa;
+	/*padding: 10px 50px;*/
+	width: 60%;
+	margin: 0 auto;
+}
+.contain .main table td{
+	border:1px solid #ddd;
+	padding: 12px;
+	font-size: 16px;
+	vertical-align: middle;
+}
+.block_details_title{
+	background: #6e92f3;
+	color: #fff;
+}
+.main .block_details tr{
+	border:1px solid #ddd;
+}
+.contain .main .block_details td{
+	border:0;
+	padding: 18px 10px;
+}
+.main .block_details{
+	color: #596daa;
+	/*padding: 10px 50px;*/
+	width: 90%;
+	margin: 0 auto;
+	font-size: 16px;
+	text-align: center;
+}
+.look a{
+	color: #6fd1a8;
+}
+.apply-mutual{
+	width: 60%;
+	margin: 0 auto;
+	font-size: 16px;
+	color: #aaa;
+	display: flex;
+	display: -webkit-flex;
+	justify-content: space-around;
+	padding: 30px;
+}
+.apply-mutual a{
+	display: block;
+	padding: 20px 40px;
+	background: #377df9;
+	color: #fff;
+}
+.apply-mutual .quitbtn{
+	background: #aaa;
+}
+.mutual_content_data{
+	color: #5c5f6e;
+}

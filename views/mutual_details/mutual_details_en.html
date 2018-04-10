@@ -1,0 +1,133 @@
+<% layout('getx_layout_en.html') -%>
+<% var name,mutual,nation,sex,email,relationship,status,birthday %>
+<link rel="stylesheet" href="../public/stylesheets/mutual_details.css">
+<ol class="breadcrumb">
+	<li>Your current location:</li>
+  <li><a href="/personal">Account summary</a></li>
+  <li><a href="/getPersonalAllGuards">My protection</a></li>
+  <li class="active">Protection details</li>
+</ol>
+<div class="mutual_name">
+	<img src="../public/img/headportrait.png">
+	Person protecting：<%=data.info.name?data.info.name:"" %>
+</div>
+
+	<div class="mutual_title">
+		<h3>保链互助计划保障单详情</h3>
+	</div>
+	<div class="mutual_code">
+		<p>保单凭证编号：<%= data.info.insurance_id %></p>
+	</div>
+	<div class="mutual-data">
+		<table class="table">
+			<tr>
+				<td rowspan="5" align="center" valign="middle" style="">Policyholder info</td>
+				<td>Name</td>
+				<td class="mutual_content_data">
+					<% data.info.name?name=data.info.name:name="" %>
+					<%= name %></td>
+				<td>Project</td>
+				<td class="mutual_content_data"><% data.mutual_id.name?mutual=data.mutual_id.name:name="" %>
+					<%= mutual %></td>
+			</tr>
+			<tr style="background: #f6fafd;">
+				<td>National</td>
+				<td class="mutual_content_data">
+					<% data.country.name?nation=data.country.name:nation="" %>
+					<%= nation %></td>
+				<td>Identity num</td>
+				<td class="mutual_content_data"><%= data.info.identify_id %></td>
+			</tr>
+			<tr>
+				<td>Gender</td>
+				<td class="mutual_content_data">
+					<% 
+						data.sex.name?sex=data.sex.name:sex=""
+					 %>
+					<%= data.sex.name %></td>
+				<td>Birthday</td>
+				<td class="mutual_content_data">
+					<% 
+						data.info.birthday?birthday=data.info.birthday:birthday=""
+					 %>
+					<%= data.info.birthday %></td>
+			</tr>
+			<tr style="background: #f6fafd;">
+				<td>email</td>
+				<td class="mutual_content_data"><%= data.info.phone %></td>
+				<td>Phone num</td>
+				<td class="mutual_content_data"><%= data.info.phone %></td>
+			</tr>
+			<tr>
+				<td>Relation</td>
+				<td class="mutual_content_data">
+					<% data.relation.name?relationship = data.relation.name:relationship='' %>
+					<%= relationship %></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr style="background: #f6fafd;">
+				<td rowspan="2" align="center" valign="middle" style="background: #fff;">Protection info</td>
+				<td>Status</td>
+				<td class="mutual_content_data">
+					<% data.status.name?status = data.status.name:status='' %>
+					<%= status %>
+				</td>
+				<td>Balance on hold for mutual project</td>
+				<td class="mutual_content_data">
+					<% data.info.balance?data.info.balance=data.info.balance:data.info.balance='0' %>
+					<%= data.info.balance %> GETX</td>
+			</tr>
+			<tr>
+				<td>Date of joining</td>
+				<td class="mutual_content_data"><%= data.info.create_time %></td>
+				<td>Effective date for mutual project </td>
+				<td class="mutual_content_data">1996-08-03</td>
+			</tr>
+		</table>
+		
+	</div>
+	<br><br>
+	<hr>
+	<br><br>
+	<div class="mutual_title">
+		<h3 style="margin-bottom: 50px;">Blockchain details</h3>
+	</div>
+	<div class="block_details">
+		<table class="table">
+			<tr class="block_details_title">
+				<td>ID</td>
+				<td>Operation type</td>
+				<td>Blockchain num</td>
+				<td>Summary</td>
+				<td>Status</td>
+				<td>Action</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td><% 
+					var pay_type;
+					if(data.block.pay_type == '1'){
+						pay_type = 'bought';
+					}else if(data.block.pay_type == '2'){
+						pay_type = 'recharge';
+					}
+				 %>
+				 	<%= pay_type %>
+				 </td>
+				<td><%= data.block.block_num %></td>
+				<td><a href="https://rinkeby.etherscan.io/tx/0xa845f9fc440b70d54a4d4147b0be6c1658fa8780#tokentxns?<%= data.block.block_transactionhash %>"><%= data.block.block_transactionhash %></a></td>
+				<td>writting to blockchain</td>
+				<td><a href="https://rinkeby.etherscan.io/tx/address/0xa845f9fc440b70d54a4d4147b0be6c1658fa8780#tokentxns?<%= data.block.block_transactionhash %>" style="color: #31c906;">check</a></td>
+			</tr>
+		</table>
+	</div>
+
+	<div class="apply-mutual">
+		<a href="/applyGuard">Apply for mutual project</a>
+		<a href="/quitGuard/<%= data.info.insurance_id %>" class="quitbtn">Apply for withdrawal</a>
+	</div>
+<script>
+	console.log(location.href.split('/:')[1]);
+	// $.get('get')
+</script>

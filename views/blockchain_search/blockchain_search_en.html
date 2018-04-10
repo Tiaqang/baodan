@@ -1,0 +1,55 @@
+<% layout('getx_layout_en.html') -%>
+<link rel="stylesheet" href="../public/stylesheets/blockchain.css">
+<div class="blockchain_title">
+		<span>Writting to blockchain...</span>
+	</div>
+<div class="blockchain">
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      
+      <% for(var i=0;i< member_list.length;i++) { %>
+          
+         <% var reg = /[\u4e00-\u9fa5]/;
+
+         var a = reg.test(member_list[i].name) %>
+         
+         <% if(a){ %>
+              <div class="swiper-slide"><a >Join mutual</a><%= member_list[i].name.substring(0,1) +'**' %></div>
+         <% }else{ %>
+              <div class="swiper-slide"><a >Join mutual</a><%= member_list[i].name.split(' ')[0] +'**' %></div>
+         <%  } %>
+
+          
+      <%  } %>
+    </div>
+  
+</div>
+</div>
+<div class="treaty"><a href="https://rinkeby.etherscan.io/address/0xa845f9fc440b70d54a4d4147b0be6c1658fa8780#tokentxns">Checking mutual project smart contract </a></div>
+
+<!-- <script>  
+	var swiper = new Swiper('.swiper-container', {
+		// initialSlide :1,
+		direction: 'vertical',
+        autoplay : true,
+        speed:1000,
+        loop:true,
+        slidesPerView: 9,
+        paginationClickable: true,
+        spaceBetween: 50
+    });
+    $('.swiper-slide:even').addClass('join_block1')      
+  </script> -->
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+    	direction: 'vertical',
+    	autoplay:true,
+      slidesPerView: 9,
+      loop:true,
+      spaceBetween: 30,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
+  </script>

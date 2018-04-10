@@ -1,0 +1,98 @@
+<% layout('getx_layout_en.html') -%>
+<link rel="stylesheet" href="../public/stylesheets/quitGuard.css">
+<ol class="breadcrumb">
+	<li>Your current location:</li>
+  <li><a href="#">Account summary</a></li>
+  <li><a href="#">My protection</a></li>
+   <li><a href="#">Priject details</a></li>
+  <li class="active">Withdrow</li>
+</ol>
+<div class="mutual_name">
+	 <%= mutual_name %>
+</div>
+
+<% if(quit_info){ %>
+		<% 
+		//正在审核中
+		if(quit_info.stage == 1){ %>
+
+		<div class="mutual-data">
+			<p style="text-indent: 2em;margin-top: 20px;">If there are questions, please contact customer service email：mutualaid@inschain.io</a></p>
+		
+		</div>
+	
+		<div id="sub">正在进行人工审核中</div>
+		
+		
+		<%
+			//已通过人工审核
+		 }else if(quit_info.stage == 2) { %>
+			<div class="mutual-data">
+			
+			<p style="text-indent: 2em;margin-top: 20px;">If there are questions, please contact customer service email：mutualaid@inschain.io</a></p>
+		</div>
+		<div id="sub">已通过人工审核，系统准备返还GETX，1-3个工作日完成。</div>
+
+		<%
+			//已退出
+		 }else if(quit_info.stage == 3) { %>
+			<div class="mutual-data">
+			
+				<p style="text-indent: 2em;margin-top: 20px;">If there are questions, please contact customer service email：mutualaid@inschain.io</a></p>
+			</div>
+			<div class="sub">已完成退出</div>
+		<% } %>
+	<% }else{ %>
+
+		<div class="mutual-data">
+			<p style="color: #f44040;">说明：退出计划需收手续费5GETX，退出需经过人工审核完成。</p>
+			<label for="eth_address">退出接收GETX地址：</label><input placeholder="ETH地址" type="text" id="eth_address" name="eth_address"><br>
+			<label for="quit_reason">退出原因：</label><br>
+			<textarea placeholder="(500字)" name="quit_reason" maxlength="500" id="quit_reason" cols="30" rows="10"></textarea>
+			
+			
+		</div>
+		<p style="text-indent: 2em;margin-top: 20px;">If there are questions, please contact customer service email：mutualaid@inschain.io</a></p>
+		<div id="sub" class="sub">Submit</div>
+	<% } %>
+
+<script>
+	
+
+	$('#sub').click(function(){
+		if(!$('#quit_reason').val() || !$('#eth_address').val()){
+				alert("将信息填写完整");
+				return;
+			}
+		// $('body').append(odiv);
+
+		$('.mutual-stage-box').click(function(){
+			$('.mutual-stage').remove();
+		})
+		$('#cancel').click(function(){
+			$('.mutual-stage').remove();
+		})
+		$('.mutual-stage-body').click(function(){
+			event = event || window.event;
+			//阻止事件冒泡
+			event.stopPropagation ? event.stopPropagation() : event.returnValue = "false";
+		});
+
+		// $('#confirm').click(function(){
+			var data = {
+				eth_address:$('#eth_address').val(),
+				quit_reason:$('#quit_reason').val(),
+				insurance_id:'<%= insurance_id %>'
+
+			}
+			// console.log(data);
+			
+
+			$.post('/quit_info',data,function(result){
+					console.log(result);
+			})
+
+		// })
+
+	});
+</script>

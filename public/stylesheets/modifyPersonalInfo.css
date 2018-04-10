@@ -1,0 +1,56 @@
+.mutual_name{
+    padding: 6% 0 5%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    color: #fff;
+    background: url(../img/assistance_bg.png) no-repeat;
+    background-size: cover;
+}
+.mutual-data{
+    background-color: white;
+}
+.mutual-data>table>tbody>tr>td{
+    padding: 10px 0 10px 36px ;
+}
+.info{
+    background-color: #F6F9FC;
+    padding: 15px 36px;
+}
+.info-div{
+    background-color: white;
+}
+.info>p{
+    display: inline;
+    margin-left: 9px;
+}
+.info>span{
+    font-size: 12px;
+}
+.table-text>tbody>tr>td{
+    color: #9fa39f;
+    padding: 10px 0;
+}
+.table-textnext>tbody>tr>td{
+    padding: 10px 0;
+}
+.info-save{
+    cursor: pointer;
+    width: 24.45%;
+    padding: 19px 0;
+    border: #6A9FFE 1px solid;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+.info-save:hover{
+    background-color: #21b83c;
+    color: white;
+}
+.info-save-text{
+    font-size: 12px;
+    display: block;
+}
+input{
+    border: #4675EB 1px solid;
+    padding: 4px 6px;
+}

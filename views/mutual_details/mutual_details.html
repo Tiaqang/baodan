@@ -1,0 +1,197 @@
+<% layout('getx_layout.html') -%>
+<% var name,mutual,nation,sex,email,relationship,status,birthday %>
+<link rel="stylesheet" href="../public/stylesheets/mutual_details.css">
+<ol class="breadcrumb">
+	<li>您当前位置：</li>
+  <li><a href="/personal">个人中心</a></li>
+  <li><a href="/getPersonalAllGuards">我的保障</a></li>
+  <li class="active">计划详情</li>
+</ol>
+<div class="mutual_name">
+	<img src="../public/img/headportrait.png">
+	会员姓名：<%=data.info.name?data.info.name:"" %>
+</div>
+
+	<div class="mutual_title">
+		<h3>保链百万意外伤害互助计划详情</h3>
+	</div>
+	<div class="mutual_code">
+		<p>会员凭证编号：<%= data.info.insurance_id %></p>
+	</div>
+	<div class="mutual-data">
+		<table class="table">
+			<tr>
+				<td rowspan="7" align="center" valign="middle" style="">会员信息</td>
+				<td>姓名</td>
+				<td class="mutual_content_data">
+					<% data.info.name?name=data.info.name:name="未填写" %>
+					<%= name %></td>
+				<td>计划类型</td>
+				<td class="mutual_content_data">
+					<%= data.status_day.mutual_name %></td>
+			</tr>
+			<tr style="background: #f6fafd;">
+				<td>国籍</td>
+				<td class="mutual_content_data">
+					<% data.country.name?nation=data.country.name:nation="未填写" %>
+					<%= nation %></td>
+				<td>证件号码</td>
+				<td class="mutual_content_data"><%= data.info.identify_id %></td>
+			</tr>
+			<tr>
+				<td>性别</td>
+				<td class="mutual_content_data">
+					<% 
+						data.sex.name?sex=data.sex.name:sex="未填写"
+					 %>
+					<%= data.sex.name %></td>
+				<td>出生日期</td>
+				<td class="mutual_content_data">
+					<% 
+						data.info.birthday?birthday=data.info.birthday:birthday="未填写"
+					 %>
+					<%= data.info.birthday %></td>
+			</tr>
+			<tr style="background: #f6fafd;">
+				<td>邮箱</td>
+				<td class="mutual_content_data"><%= data.info.phone %></td>
+				<td>手机号</td>
+				<td class="mutual_content_data"><%= data.info.phone %></td>
+			</tr>
+			<tr>
+				<td>与本人关系</td>
+				<td class="mutual_content_data">
+					<% data.relation.name?relationship = data.relation.name:relationship='未填写' %>
+					<%= relationship %></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr style="background: #f6fafd;">
+				<!-- <td rowspan="2" align="center" valign="middle" style="background: #fff;">保障单状态</td> -->
+				<td>状态期</td>
+				<td class="mutual_content_data">
+					<% data.status.name?status = data.status.name:status='未填写' %>
+					<%= status %>
+				</td>
+				<td>计划余额</td>
+				<td class="mutual_content_data">
+					<% data.info.balance?data.info.balance=data.info.balance:data.info.balance='0' %>
+					<%= data.info.balance %> GETX</td>
+			</tr>
+			<tr>
+				
+					<!-- 待支付，不显示生效日期 -->
+					<% if(data.info.status == '1'){ %>
+							<td>订单创建日期</td>
+							<td class="mutual_content_data"><%= data.info.create_time %></td>
+							<td colspan="2"></td>
+					<% }else if(data.info.status == '2') { %>
+							<td>加入日期</td>
+							<td class="mutual_content_data"><%= data.info.create_time %></td>
+							<td>生效日期</td>
+						<td class="mutual_content_data">
+							<!-- 计算生效日期 -->
+							<% var ctime = new Date(data.info.create_time);
+									ctime = ctime.getTime();
+							   var prooftime = data.status_day.proof_day*24*60*60*1000;
+							   var proofdayY = new Date(ctime+prooftime).getFullYear();
+							   var proofdayM = new Date(ctime+prooftime).getUTCMonth()+1;
+							   var proofdayD = new Date(ctime+prooftime).getUTCDate();
+								
+
+							 %>
+							<%= proofdayY+'-'+proofdayM+'-'+proofdayD %>
+						</td>
+						<!-- 生效期，不显示生效或者宽限日期 -->
+					<% }else if(data.info.status == '3') { %>
+							<td colspan="2"></td>
+					<!-- 宽限期，显示超宽限日期 -->
+					<% }else if(data.info.status == '4') { %>
+							<td>进入宽限期日期</td>
+							<td class="mutual_content_data"><%= data.info.create_time %></td>
+							<td>
+								超宽限期天数
+							</td>
+							<td>
+								<% var ctime = new Date(data.info.create_time);
+								   ctime = ctime.getTime();
+								   var delaytime = data.status_day.delay_day*24*60*60*1000;
+								   var delaydayY = new Date(ctime+delaytime).getFullYear();
+								   var delaydayM = new Date(ctime+delaytime).getUTCMonth()+1;
+								   var delaydayD = new Date(ctime+delaytime).getUTCDate();
+								
+
+							 %>
+							<%= delaydayY+'-'+delaydayM+'-'+delaydayD %>
+							</td>
+					<% } %>
+				
+			</tr>
+		</table>
+		
+	</div>
+	<br>
+	<hr>
+	<br>
+	<div class="mutual_title">
+		<h3 style="margin-bottom: 50px;">区块链详情</h3>
+	</div>
+	<div class="block_details">
+		<table class="table">
+			<tr class="block_details_title">
+				<td>序号</td>
+				<td>交易类型</td>
+				<td>区块号</td>
+				<td>交易摘要</td>
+				<td>状态</td>
+				<td>操作</td>
+			</tr>
+
+			<% 
+				if(data.block.length !== 0){ %>
+
+					<% for(var i = 0;i<data.block.length;i++){ %>
+
+						<tr>
+							<td>1</td>
+							<td><% 
+								var pay_type;
+								if(data.block[i].pay_type == '1'){
+									pay_type = '加入';
+								}else if(data.block[i].pay_type == '2'){
+									pay_type = '充值';
+								}
+							 %>
+							 	<%= pay_type %>
+							 </td>
+							<td><%= data.block[i].block_num %></td>
+							<td><a href="https://rinkeby.etherscan.io/tx/<%= data.block[i].block_transactionhash %>" target="blank"><%= data.block[i].block_transactionhash %></a></td>
+							<td>正在写入区块链</td>
+							<td><a href="https://rinkeby.etherscan.io/tx/<%= data.block[i].block_transactionhash %>" style="color: #31c906;" target="blank">查看</a></td>
+						</tr>
+					<%	} %>
+				
+					<%	}else{ %>
+						<tr>
+							<td>暂未加入区块链</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					<%	} %>
+
+			
+		</table>
+		
+	</div>
+
+	<div class="apply-mutual">
+		<a href="/applyGuard">申请互助</a>
+		<a href="/quitGuard/<%= data.info.insurance_id %>" class="quitbtn">申请退出</a>
+	</div>
+<script>
+	console.log(location.href.split('/:')[1]);
+	// $.get('get')
+</script>

@@ -1,0 +1,202 @@
+<% layout('getx_layout.html') -%>
+    <link rel="stylesheet" href="../public/stylesheets/personal.css">
+    <!-- <p class="my-protection-title">我的保障</p> -->
+    <ol class="breadcrumb">
+        <li>您当前位置：</li>
+        <li><a href="/personal">个人中心</a></li>
+        <li class="active">我的保障</li>
+    </ol>
+    <div class="my-protection">
+        <div class="my-protection-left">
+            <ul>
+                <% if(data.length == 0){ %>
+                    <li class="protections" style="justify-content: center;padding-top: 4rem;">
+                        <div style="text-align: center;">
+                            <p>未加入互助计划</p>
+                            <a href="/product?program_id=1" style="font-size: 24px;">点击加入互助计划</a>
+                        </div>
+                    </li>
+                    <% }else{ %>
+        <%var total_money = 0; 
+			for(var i=0;i < data.length;i++){%>
+                            <% var setdata = {};
+					
+					total_money += data[i].insure_money
+					switch(data[i].status)
+					{
+					case 1:
+					  setdata = {
+								  	name:data[i].name,
+									bg:"",
+									stage:"waitperiod",
+									stage_text:"待支付",
+									insure_money:data[i].insure_money,
+									balance:data[i].balance,
+									insurance_id:data[i].insurance_id,
+									text_color:"",
+									mutual_name:data[i].mutual_name,
+									btntxt:'立即支付'
+								}
+					  break;
+					case 2:
+					  setdata = {
+								  	name:data[i].name,
+									bg:"",
+									stage:"waitperiod",
+									stage_text:"等待期",
+									insure_money:data[i].insure_money,
+									balance:data[i].balance,
+									insurance_id:data[i].insurance_id,
+									text_color:"",
+									mutual_name:data[i].mutual_name
+								}
+					  break;
+					case 3:
+					  setdata = {
+							  	name:data[i].name,
+								bg:"protections1",
+								stage:"graceperiod",
+								stage_text:"生效期",
+								insure_money:data[i].insure_money,
+								balance:data[i].balance,
+								insurance_id:data[i].insurance_id,
+								text_color:"peroid1",
+									mutual_name:data[i].mutual_name
+							}
+					  break;
+					  case 4:
+					  setdata = {
+								  	name:data[i].name,
+									bg:"protections2",
+									stage:"valid",
+									stage_text:"宽限期",
+									insure_money:data[i].insure_money,
+									balance:data[i].balance,
+									insurance_id:data[i].insurance_id,
+									text_color:"peroid2",
+									mutual_name:data[i].mutual_name
+								}
+					  break;
+					  case 5:
+					  setdata = {
+								  	name:data[i].name,
+									bg:"protections3",
+									stage:"quit",
+									stage_text:"失效期",
+									insure_money:data[i].insure_money,
+									balance:data[i].balance,
+									insurance_id:data[i].insurance_id,
+									text_color:"peroid3",
+									mutual_name:data[i].mutual_name
+								}
+					  break;
+					  case 6:
+					  setdata = {
+								  	name:data[i].name,
+									bg:"protections4",
+									stage:"invalid",
+									stage_text:"自动退出",
+									insure_money:data[i].insure_money,
+									balance:data[i].balance,
+									insurance_id:data[i].insurance_id,
+									text_color:"peroid4",
+									mutual_name:data[i].mutual_name
+								}
+					  break;
+					}
+				 %>
+                                <li class="protections <%= setdata.bg %>">
+                                    <div class="headimg-nick">
+                                        <div class="head">
+                                            <img src="../public/img/headportrait.png" alt="..">
+                                        </div>
+                                        <p>
+                                            <%= setdata.name %>
+                                        </p>
+                                    </div>
+                                    <div class="protection-details">
+                                        <div class="mutual-name">
+                                            <%= setdata.mutual_name %>
+                                                <span>有效会员</span>
+                                        </div>
+                                        <div class="account-details">
+                                            <div class="mutual-sum">最高可获得互助金<span class="sum-getx"><%= setdata.insure_money %> GETX</span></div>
+                                            <div class="mutual-balance">您的账余额<span class="balance-getx"><% setdata.balance?setdata.balance=setdata.balance:setdata.balance='0' %><%= setdata.balance %> GETX</span></div>
+                                        </div>
+                                        <div class="about-mutual">
+                                            <a href="/getPersonalGuard/<%= setdata.insurance_id %>">查看详情</a>
+                                            
+												<% if(setdata.btntxt){ %>
+												<a href="/purchase?insurance=<%= setdata.insurance_id %>">
+													<%= setdata.btntxt %>
+												</a>
+												<% }else{ %>
+												<a href="/pay?insurance_id=<%= setdata.insurance_id %>">
+	                                            	立即充值
+	                                            </a>
+	                                            <% }%>
+	                                        
+                                        </div>
+                                    </div>
+                                    <div class="stage">
+                                        <img src="../public/img/<%= setdata.stage %>.png" alt="">
+                                        <p class="peroid <%= setdata.text_color %>">
+                                            <%= setdata.stage_text %>
+                                        </p>
+                                        <a href="#" title="查看状态说明"></a>
+                                    </div>
+                                </li>
+                                <% } %>
+                                    <% } %>
+            </ul>
+        </div>
+        <div class="my-protection-right">
+            <div class="member-sum">
+                <p>成员总计</p>
+                <div class="blue-sun">
+                    <%= data.length %>人
+                </div>
+            </div>
+            <!-- <h4>保险类保障</h4> -->
+            <div class="member-sum">
+                <p>所用保障的最高理赔额度总和</p>
+                <div class="orangesun">
+                    <% total_money?total_money:total_money=0 %>
+                        <%= total_money %>
+                            <p style="font-size: 14px;">GETX</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+    var odiv = '<div class="mutual-stage">\
+					<div class="mutual-stage-box">\
+						<div class="mutual-stage-body">\
+							<p>1.待支付：</p>\
+							<p>用户提交个人信息资料，未进行支付。</p><hr>\
+							<p>2.等待期</p>\
+							<p>申请加入互助计划，审核通过后的30天内属于等待期，当前状态不收取管理费，支持申请退出计划，若互助群体发生意外事件，需参与互助，但本人在此状态无受助权益。</p><hr>\
+							<p>3.生效期</p>\
+							<p>等待期结束之后，互助会员享有受助权益，当前状态收取管理费。</p><hr>\
+							<p>4.宽限期</p>\
+							<p>若互助计划账户余额不足，低于该计划最低额度，暂停受助权益，30天内充值后，次日起可享受生效期权益。</p><hr>\
+							<p>5.失效期：</p>\
+							<p>若会员未在宽限期内充值到最低要求，进入失效期；另会员年满61周岁，下月首日起，进行失效期。</p><hr>\
+							<p>6.已退出：</p>\
+							<p>发生互助事件或主动退出互助计划，则为已退出状态。</p>\
+					</div>\
+				</div>';
+
+    $('.stage a,.stage img').click(function() {
+        $('body').append(odiv);
+
+        $('.mutual-stage-box').click(function() {
+            $('.mutual-stage').remove();
+        })
+        $('.mutual-stage-body').click(function() {
+            event = event || window.event;
+            //阻止事件冒泡
+            event.stopPropagation ? event.stopPropagation() : event.returnValue = "false";
+        })
+    })
+    </script>

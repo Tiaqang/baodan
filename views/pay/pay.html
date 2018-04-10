@@ -1,0 +1,159 @@
+<% layout('getx_layout.html') -%>
+<link href="../public/stylesheets/pay.css" rel="stylesheet">
+<script type="text/javascript" src="../public/javascripts/client.js"></script>
+<article>
+	<!--导航-->
+    <ul class="breadcrumb">
+		<li>您当前的位置：</li>
+      	<li class=""><a href="/product?program_id=">互助详情</a></li>
+      	<li class=""><a href="/purchase?program_id=">加入计划</a></li>
+      	<li class="active">支付</li>
+    </ul>
+	<div class="steps">
+        <div class="step1">
+            <span class="num">1</span>
+            <span>填写资料</span>
+        </div>
+        <div class="step2">
+            <span class="num">2</span>
+            <span>保障单支付</span>
+        </div>
+        <div class="step3">
+            <span class="num">3</span>
+            <span>加入计划成功</span>
+        </div>
+    </div>
+	<section style="">
+
+		<div class="choose_num">
+			<div class="title" style="border-bottom: none;color: red">保链温馨提示：若您选择自行支付，须在转出账户留有适量以太币作为以太网络手续费（GAS费用）。</div>
+			<div class="title">选择充值金额&nbsp;<span class="color_red">(加入计划首次充值不能低于30 GEXT)</span></div>
+			<div class="num_list">
+				<div class="item" value='30'>30 &nbsp;GETX</div>
+				<div class="item active_item" value="50">50 &nbsp;GETX</div>
+				<div class="item" value='100'>100 &nbsp;GETX</div>
+				<div class="item sel_other">
+					<span class="other font24">其他金额</span>
+					<span class="other_num"><input id="num_inp" type="number" name="num_inp" class="num_inp"><label for="num_inp">&nbsp;GETX</label></span>
+				</div>
+			</div>
+		</div>
+		<div class="choose_type">
+			<div class="title">支付方式</div>
+			<div class="num_list">
+				<div class="item">GETX&nbsp;<span class="font24">支付</span></div>
+				<div class="item">ETH&nbsp;<span class="font24">支付</span></div>
+			</div>
+		</div>
+		<div class="preferential">
+			<div class="title">我的优惠</div>
+			<div class="num_list">
+				<div class="item"><span class="font24">我的优惠</span></div>
+				<div class="item" style="display:none;"></div>
+				<div class="item" style="display:none;"></div>
+				<div class="item" style="display:none;"></div>
+			</div>
+		</div>
+		<div class="confirm_btn" haspay='0'><span class="pay_num"></span>&nbsp;确认支付</div>
+	</section>
+	<div class="pay_success" style="display: none;">
+		<div style=''>
+			<div class='text-center' style="padding-bottom: 10%">
+				<div style='margin-top:90px;font-size:26px;color:#000;'><img style='position:absolute;margin-left:-70px;' src='../public/img/pay/pay_success.png'>恭喜您操作成功！</div>
+				<div style='margin-top:20px;font-size:14px;color:#858585;'>操作成功，正在写入区块链：<span class="getx_num"></span> GETX</div><div style='margin-top:50px; font-size:12px;color:#858585;'>页面即将跳转......</div>
+			</div>
+		</div>
+	</div>
+	<input id="user_id" class="user_id" type="text" name="user_id" value="<%-register_id%>" style="display: none;">
+	<input id="insurance_id" class="insurance_id" type="text" name="insurance_id" value="<%-insurance_id%>" style="display: none;">
+</article>
+<script type="text/javascript">
+	//选项 背景图切换
+	$('section .item').click(function(){
+		$(this).siblings('.item').removeClass('active_item');
+		if(!$(this).hasClass('active_item')){
+			$(this).addClass('active_item');
+			if($(this).siblings('.sel_other').length){
+				$('.other').show();
+				$('.other_num').hide();
+			}
+		}
+		if($(this).children('.other').length){
+			$('.other').hide(); 
+			$('.other_num').show();
+			$(this).find('input').focus();
+		}
+	})
+	
+	//支付成功
+	function pay_success(program,num){
+		$('.steps .num').css('background-color','#4786ff')
+		$('section').hide();
+		$('.pay_success').show();
+	}
+	//3s 后跳转
+	function jump_to(id){
+		var time= setTimeout(function(){
+			window.location.href='getPersonalGuard/'+id
+		},3000)
+	}
+	$(function(){
+		web3_check() //检测用户是否安装并登录 metamask 注入web3
+		$('.confirm_btn').click(function(){
+			if($(this).attr('haspay')=='1'){
+				return
+			};
+			$(this).attr('haspay','1');
+			var value='';
+			console.log($('.choose_num .active_item').length)
+			if($('.choose_num .active_item').length==0){
+				$(this).attr('haspay','0');
+				toast('请选择充值金额')
+				return
+			}
+			if($('.choose_type .active_item').length==0){
+				$(this).attr('haspay','0');
+				toast('请选择充值类型')
+				return
+			}
+			if($('.choose_num .active_item').index()==3){
+				value=$('#num_inp').val()*1
+			}else{
+				value=$('.choose_num .active_item').attr('value')*1
+			}
+			//充值金额判断
+			if(value <= 0) {
+			    toast("invalid number");
+			    return false;
+		  	}
+		  	if(value<30) {
+			    toast("GETX amount should not be less than 30");
+			    return false;
+			}
+			//判断用户是否享有优惠
+			//IsPC() 判断是否为pc端
+			var userid = $("#user_id").val();
+		    var insurance_id = $('.insurance_id').val()
+			if($('.choose_type .active_item').index()==0){
+				//GETX 支付
+			    // todo: check if balance of coinbase is greater than amount
+			    //var amountInWei = web3.toWei(value, 'ether');
+			    console.log(value)
+			    // 调用GETX加入方法
+			    participateByGETX(policyPoolAddress,value,insurance_id);
+			    return false;
+			  	
+			}else if($('.choose_type .active_item').index()==1){
+				//ETH 支付
+				//调用ETH加入方法
+				participateByEther(inschainaddress, value, insurance_id)
+
+			}
+		})
+
+
+		
+	})
+
+
+</script>

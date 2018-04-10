@@ -1,0 +1,70 @@
+<% layout('getx_layout.html') -%>
+<link href="../public/stylesheets/publicity.css" rel="stylesheet">
+<script type="text/javascript" src="../public/libs/echarts.min.js"></script>
+    <article>
+        <section class="total">
+            <div class="header">互助公示总览</div>
+            <div class="title">
+                <div class="item1">历史互助人次<span class="mark">:2036万次</span></div>
+                <div class="item2">累计互助金额<span class="mark">:126万GEXT</span></div>
+                <div class="item3">公示互助率<span class="mark">:99.52%</span></div>
+            </div>
+            <div class="map text-center">
+                <img class="map_img img-responsive " src="../../public/img/publicity/map.png" alt="">
+                <div class="remark">
+                    <div class="remark_content">
+                        <div>受助会员<span>817</span>人</div>
+                        <div>遍布<span>27</span>个国家和地区</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="details">
+            <div class="huzu">
+                <div class="header">
+                    <span>互助公示</span>
+                    <span><a class="history">查看历史公示>></a></span>
+                </div>
+                <div class="content">
+                    <div class="list_item pointer" program_id='1' onclick="jump_to(1)">
+                        <span class="info">
+                            <div class="title">保链互助平台2018年第一期互助计划公示</div>
+                            <div class="count">
+                                <div>互助总额：<span class="all_getx">6512 GEXT</span></div>
+                                <div>参与人数：11223456人</div>
+                                <div>人均捐助：3.06 GEXT</div>
+                            </div>
+                            <div class="divider"></div>
+                            <div class="donation">本期公示时间： 2018.4.1- 2018.4.10（HKT）</div>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="operative">
+                <div class="header">
+                    <span>运营公示</span>
+                    <span><a class="history">查看历史公示>></a></span>
+                </div>
+                <div class="content">
+                    <div class="list_item pointer" publicity_id='1' onclick="jump_in(1)">
+                        <div class="item_title">保链互助平台2018年第一季度运营报告</div>
+                        <div class="item_content">截止2017年第二季度，e互助平台运营基本满三周年，三年间共有405个家庭获得帮助，筹款金额超过6859万元......</div>
+                        <div class="divider"></div>
+                        <div class="donation">本期公示时间： 2018.4.1- 2018.4.10（HKT）</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </article>
+        
+<script type="text/javascript">
+    //互助公示跳转
+    function jump_to(id){
+        window.location.href="/publicity_details/:"+id
+    }
+    //运营公式跳转
+    function jump_in(id){
+        window.location.href="/publicity_operations?id="+id
+    }
+    
+</script>

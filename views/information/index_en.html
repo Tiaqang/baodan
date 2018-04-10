@@ -1,0 +1,160 @@
+<% layout('getx_layout_en.html') -%>
+<script src="../public/javascripts/setrem.js"></script>
+<link href="../public/stylesheets/information.css" rel="stylesheet">
+<article>
+        <div class="bg">
+            <div class="bg-left">
+                <div class="bg-left-img">
+                    <img src="../../public/img/banner1.png" alt="" class="bg-left-head" id="userhead">
+                    <div class="bg-left-img-username"><% data.info.name %></div>
+
+                </div>
+                <div class="member">
+                    <div>My invitation code</div>
+                    <div class="member-number"><%= data.info.invite_code %></div>
+                    <div>(Validate member)</div>
+                </div>
+                <!--<div style="margin-top: 20px" class="member-rank-row">
+                    <div class="member-rank">
+                        <div class="member-rank-row">
+                            <img src="../../public/img/merits.png" alt="" class="">
+                            <div style="margin-left: 14px;color: #8993E3;" class="member-rank-text"><span class="member-rank-num">0</span>级会员</div>
+                        </div>
+                        <div class="member-rank-text">享功德</div>
+                    </div>
+                    <div class="member-rank-line"></div>
+                    <div class="member-rank">
+                        <div class="member-rank-row">
+                            <img src="../../public/img/earnpoints.png" alt="" class="">
+                            <div style="margin-left: 14px;color: #E1A0EF;" class="member-rank-text"><span class="member-rank-num">2</span></div>
+                        </div>
+                        <div class="member-rank-text">赚积分</div>
+                    </div>
+                </div>-->
+                <div class="bg-line" style="margin-top: ;"></div>
+                <div id="moreinfo" title="click to finalise personal information" class="info info-between displaynone">
+                    <div style="margin-left: 5.75%;color: #0e0e0e">personal information</div>
+                    <img src="../../public/img/modification.png" alt="" class="" style="margin-right: 5.36%;">
+                </div>
+                <div class="bg-line displaynone"></div>
+                <div class="info-flexcol displaynone" style="margin-top: 7px;">
+                    <div class="info info-detail">
+                        <div class="info-detail-left">Name</div>
+                        <div class="info-detail-right" id="name"><% data.info.name?data.info.name=data.info.name:data.info.name='' %><%= data.info.name %></div>
+                    </div>
+                    <div class="bg-line-dashed"></div>
+                    <div class="info info-detail">
+                        <div class="info-detail-left">Nationality</div>
+                        <div class="info-detail-right" id="email"><% data.info.country?data.info.country=data.info.country:data.info.country='' %><%= data.info.country %></div>
+                    </div>
+                    <div class="bg-line-dashed"></div>
+                    <div class="info info-detail">
+                        <div class="info-detail-left">Email address</div>
+                        <div class="info-detail-right" id="email"><% data.info.member?data.info.member=data.info.member:data.info.member='' %><%= data.info.member %></div>
+                    </div>
+                    <div class="bg-line-dashed"></div>
+                    <div class="info info-detail">
+                        <div class="info-detail-left">Mobile number</div>
+                        <div class="info-detail-right"><% data.info.phone?data.info.phone=data.info.phone:data.info.phone='' %><%= data.info.phone %></div>
+                    </div>
+                    <div class="bg-line-dashed"></div>
+                </div>
+                <!-- <div class="bg-line displaynone" style="margin-top: 100px;"></div> -->
+               <!--  <div style="width: 100%;margin-top: 26px;" class="button-center displaynone" id="loginout1">
+                    <div class="button button-center">退出</div>
+                </div> -->
+            </div>
+            <div class="bg-right">
+                <div class="add">
+                    <div class="add-kuo">
+                        <div class="add-div" style="border-bottom: 1px solid #fff;">
+                            <!-- <div class="add-line"></div> -->
+                            <div class="add-text">
+                                <p style="font-size: 16px;">Adding family member</p>
+                                <p style="font-size: 12px;">Giving your family an extra protection</p>
+                            </div>
+                            <div class="add-button" style="background-color: #C2D4FA;">
+                                    <a class="add-button-click" href="/product?program_id=1"><span style="color: #4C84FF;">Check details</span></a></div>
+                        </div>
+                        <!-- <div class="line"></div> -->
+                        <div class="add-div">
+                            <!-- <div class="add-line"></div> -->
+                            <div class="add-text">
+                                <p style="font-size: 16px;">My account</p>
+                                <p style="font-size: 12px;">Account balance on hold for all mutual aid project: 
+                                    <% var total_balance;data.money.total_balance?total_balance = data.money.total_balance : total_balance = 0 %> <%= total_balance %> GETX</p>
+                            </div>
+                            <div class="add-button" style="background-color: #E2DEFF;">
+                                    <a class="add-button-click" href="/account"><span style="color:#7BA2FD;">Check details</span></a></div>
+                        </div>
+                        <div class="line displaynonepc"></div>
+                    </div>
+                    <div class="add-kuo" style="border-left: 1px solid #fff;">
+                        <div class="add-div" style="border-bottom: 1px solid #fff;">
+                            <!-- <div class="add-line"></div> -->
+                            <div class="add-text">
+                                <p style="font-size: 16px;">My protection</p>
+                                <p style="font-size: 12px;">Accumulate protection amount <% var total_money;data.money.total_money?total_money = data.money.total_money : total_money = 0 %> <%= total_money %> GETX</p>
+                            </div>
+                                <div class="add-button" style="background-color: #D3F9FC;">
+                                    <a class="add-button-click" href="/getPersonalAllGuards"><span style="color: #4CC4CD;">Check details</span></a></div>
+                        </div>
+                        <!-- <div class="line"></div> -->
+                        <div class="add-div">
+                            <!-- <div class="add-line"></div> -->
+                            <div class="add-text">
+                                <p style="font-size: 16px;">Help center</p>
+                                <p style="font-size: 12px;">More information about Inschain mutual project</p>
+                            </div>
+                                <div class="add-button" style="background-color: #FFEDD1;">
+                                    <a class="add-button-click" href="/assistance"><span style="color: #EFB358;">Check details</span></a></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <p class="member-text displaynone">会员中心</p> -->
+                <div class="button-center displaynone">
+                    <div class="swiper-container swiper1 swiper-div">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img class="img-responsive" src="../../public/img/banner1_en.png" alt=""></div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+                <div class="bg-line displaynonepc" style="margin-top: 100px;"></div>
+               <!--  <div style="width: 100%;margin-top: 26px;" class="button-center displaynonepc" id="loginout2">
+                    <div class="button button-center">退出</div>
+                </div> -->
+            </div>
+        </div>
+
+</article>
+
+<script type="text/javascript">
+    var swiper1=new Swiper(".swiper1",{
+        pagination: {
+            el: '.swiper-pagination',
+            clickable :true,
+        },
+        autoplay:false,
+        loop:true,
+        lazy: {
+            loadPrevNext: true,
+        },
+        speed:2000,
+    })
+
+    /*$("#moreinfo").click(function () {
+        /!*var name = $("#name").html();
+        var email = $("#email").html();
+        setSessionStorage('name',name);
+        setSessionStorage('email',email);*!/
+        window.location.href = "/modifyPersonalInfo"
+    });*/
+    $("#loginout1").click(function () {
+        //alert("tuichu")
+    });
+    $("#loginout2").click(function () {
+        //alert("tuichu")
+    });
+</script>

@@ -1,0 +1,240 @@
+.main{
+	width: 100%;
+	background-color: #f5f6fa;
+}
+.main header img{
+	display: inline;
+}
+.main section{
+	width: 1612px;
+    margin: 0 auto;
+    background-color: #fff;
+}
+.main .about_us{
+	margin-top: -14%;
+    padding: 4% 6.8%;
+    position: relative;
+    overflow: hidden;
+}
+.about_us>div{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 6% 50px;
+
+}
+.about_us>div+div{
+	margin-top: 10%;
+}
+.about_us .title{
+	width: 15%;
+}
+.about_us .contain_text{
+	width: 72%;
+	text-align: justify;
+}
+.border{
+	border: 1px solid #a0a0a0;
+	position: relative;
+}
+.border>img{
+	position: relative;
+	top: 50px;
+	left: -40px;
+}
+.title_text{
+    font-size: 20px;
+    color: #434343;
+    position: absolute;
+    top: -1px;
+    background-color: #fff;
+    width: 80%;
+    left: 60%;
+    text-align: center;
+    padding: 8px 0;
+}
+.contain_text{
+	padding-right: 10%;
+	font-size: 14px;
+	color: #595959;
+	line-height:30px;
+	margin-top: 25px;
+}
+.about_us .divider{
+	padding:1px 0 0;
+	background-color: #a0a0a0;
+}
+.main .operate{
+	margin-top:32px;
+	padding: 2% 6% 2%
+}
+
+.operate_items{
+	margin-top: 3.2%;
+	display: flex;
+	justify-content: space-between;
+}
+.operate_title{
+	font-size: 20px;
+	color: #595959;
+}
+.item{
+	width: 25%;
+}
+
+.item>div:last-child{
+	margin-top:10%;
+	font-size:14px;
+	color:#595959;
+	line-height: 26px;
+}
+.main .concat{
+	margin-top:32px;
+	padding: 2.5% 0;
+}
+.concat_title{
+	font-size: 20px;
+	color: #595959;
+}
+.main .email{
+	margin-top:18px;
+}
+.iconfont {
+    font-size: 21px;
+    border-radius: 50%;
+    padding: 11px;
+    margin: 0 20px;
+    cursor: pointer;
+    color: #FFFFFF;
+    background-color: #ccc
+}
+.link_box{
+	margin-top: 36px;
+}
+.link_box a{
+	margin: 0;
+    padding: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+    text-decoration: none;
+}
+.icon-kakao_real:before{
+	content: '';
+	display: inline-block;
+	width: 21px;
+	height: 21px;
+}
+.icon-linkedin:before{
+	content: '';
+	display: inline-block;
+	width: 21px;
+	height: 21px;
+}
+.icon-twitter {
+    background: #00acee;
+}
+.icon-facebook {
+    background: #3b5997;
+}
+.icon-kakao {
+    background: #fe5700;
+}
+.icon-emizhifeiji {
+    background-color: #5c7cfa;
+}
+.icon-kakao_real {
+    background: #fe5700;
+    background-image:url(../../public/img/about/kakao_talk.png);
+    background-position: center center; 
+}
+.icon-linkedin {
+    background: #2eace5;
+    background-image:url(../../public/img/about/linkedin.png);
+    background-position: center center; 
+}
+header+div{
+	padding-bottom: 30px;
+}
+
+@media screen and (max-width: 1612px){
+	.main section{
+		width: 84%;
+	}
+	.title_text{
+		width: 100%;
+		left: 50%;
+		font-size: 18px;
+	}
+}
+
+@media screen and (max-width: 1400px){
+	.about_us .title{
+		width: 20%;
+	}
+	.about_us .contain_text{
+		width: 76%;
+	}
+	.contain_text{
+		padding-right: 0%;
+		padding: 6%
+	}
+}
+@media screen and (max-width: 1200px){
+	.about_us>div{
+		display: block;
+	}
+	.about_us .title{
+		width: 202px;
+		margin: 0 auto;
+	}
+	.about_us .contain_text{
+		width: 100%;
+	}
+	.about_us>div+div{
+		margin-top: 0;
+	}
+	.operate_items{
+		display: block;
+	}
+	.item{
+		width: 60%;
+		margin:6% auto;
+	}
+}
+@media screen and (max-width: 876px){
+	.main .about_us{
+		padding:4% 0;
+	}
+}
+@media screen and (max-width: 630px){
+	.main section{
+		width: 96%;
+	}
+	.main .about_us{
+		padding:4% 0;
+		margin-top: 2%;
+	}
+	.iconfont{
+		font-size: 16px;
+		padding: 6px;
+		margin: 0 12px;
+	}
+	.icon-kakao_real:before{
+		width: 16px;
+		height:16px;
+	}
+	.icon-linkedin:before{
+		width: 16px;
+		height:16px;
+	}
+	.item{
+		width: 90%;
+	}
+}
+
+@media screen and (max-width: 400px){
+	.iconfont{
+		margin: 0 6px;
+	}
+}

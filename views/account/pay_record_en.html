@@ -1,0 +1,61 @@
+<% layout('getx_layout_en.html') -%>
+<link rel="stylesheet" href="../public/stylesheets/pay_record.css">
+<article>
+	<ul class="breadcrumb">
+        <li>Your current location:</li>
+        <li class=""><a href="/personal">Account summary</a></li>
+        <li class=""><a href="/account">My account</a></li>
+        <li class="active">Historical transaction</li>
+    </ul>
+	<section class="pc_show">
+		<div class="title">Historical transaction</div>
+		<%if(rescnt.status==1){%>
+		<table>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Operation type</th>
+					<th>Time</th>
+					<th>Blockchain num</th>
+					<th>Summary</th>
+					<th>State</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<%rescnt.data.forEach(function(v,k){%>
+				<tr>
+					<td><span><%- k*1+1%></span></td>
+					<td><%- v.pay_type==1?'bought':'recharge'%></td>
+					<td><%- v.create_date%></td>
+					<td><%- v.block_num?v.block_num:''%></td>
+					<td><%- v.block_transactionhash?v.block_transactionhash:''%></td>
+					<td><%- v.block_num?'Has written to blockchain':'Writting to blockchain'%></td>
+					<td><a href="https://rinkeby.etherscan.io/tx/<%- v.block_transactionhash%>" target="_blank">check</a></td>
+				</tr>
+				<%})%>
+			</tbody>
+		</table>
+	<%}%>
+	</section>
+	<section class="mobile_show">
+		<%if(rescnt.status==1){%>
+		<%rescnt.data.forEach(function(v,k){%>
+		<div class="item">
+			<div><span>ID:</span><span class="text"><%- k*1+1%></span></div>
+			<div><span>Operation type: </span><span class="text"><%- v.pay_type==1?'bought':'recharge'%></span></div>
+			<div><span>Time: </span><span class="text"><%- v.create_date%></span></div>
+			<div><span>Blockchain num: </span><span class="text"><%- v.block_num?v.block_num:''%></span></div>
+			<div><span>Summary:</span><span class="text"><%- v.block_transactionhash?v.block_transactionhash:''%></span></div>
+			<div><span>State: </span><span class="text"><%- v.block_num?'Has written to blockchain':'Writting to blockchain'%></span></div>
+			<div><span>Action: </span><span class="text"><a href="https://rinkeby.etherscan.io/tx/<%- v.block_transactionhash%>" target="_blank">check</a></span></div>
+		</div>
+		<%})%>
+		<%}%>
+	</section>
+</article>
+	
+</div>
+<script>
+	
+</script>

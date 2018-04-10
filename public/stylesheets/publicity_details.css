@@ -1,0 +1,483 @@
+/* 超小屏幕（手机，小于 768px） */
+/* 没有任何媒体查询相关的代码，因为这在 Bootstrap 中是默认的（还记得 Bootstrap 是移动设备优先的吗？） */
+body{
+	background: #f5f6fa;
+}
+.main *{
+	box-sizing: border-box;
+}
+@media (max-width: 768px) {
+			.main h3{
+			padding: 25px 0;
+			text-align: center;
+			background: #fff;
+			margin: 20px 0;
+			}
+			.main h3 a{
+				float: right;
+				font-size: 12px;
+			}
+			.total{
+				background: #fff;
+			}
+			.total .table{
+				width: 80%;
+				margin: 0 auto;
+			}
+			.total .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+				border: 0;
+			}
+			.publicity_tips{
+				padding: 27px 10px;
+				background: #f7f9fd;
+				/*padding-right: 85px;*/
+				font-size: 16px;
+				/*border: 1px dashed #4a73eb;*/
+				background: #fff;
+				margin: 0;
+			}
+			.tips_box{
+				display: flex;
+				display: -webkit-flex;
+				padding: 20px 30px;
+				background: #fef5f1;
+			}
+			.publicity_tips_img{
+				width: 214px;
+				padding: 0 15px;
+			}
+			.publicity_tips img{
+				/*vertical-align: middle;
+				display: inline-block;*/
+				margin-top: 60px;
+			}
+			.publicity_tips_txt{
+				color: #aaa;
+			}
+			.mutual_members{
+				margin-top: 40px;
+				padding: 10px 0;
+				color: #7d7d7d;
+				font-size: 16px;
+				border-top: 1px solid #d2d5d8;
+			}
+			.table1_box{
+				/*padding-right: 17px;*/
+			}
+			.table1_box table{
+				margin:0;
+				text-align: center;
+				font-size: 16px;
+				border: 1px solid #d2d5d8;
+				color: #b5b5b5;
+			}
+			.table1_box .table td{
+				padding: 16px 0;
+			}
+			.mutual_members_list{
+				height: 277px;
+				overflow-y: auto;
+				margin-bottom: 40px;
+			}
+			.mutual_members_list .table{
+				text-align: center;
+				font-size: 16px;
+				border: 1px solid #d2d5d8;
+				color: #b5b5b5;
+				position: relative;
+
+
+			}
+			.member_list_title{
+				background: #6d92f4;
+				color: #fff;
+			}
+
+			.mutual_members_list .table td{
+				padding: 16px 0;
+			}
+			.table-hover>tbody>tr:hover {
+			    background-color: #c2cff1;
+			    color: #000;
+			}
+}
+
+/* 小屏幕（平板，大于等于 768px） */
+@media (min-width: 768px)  and (max-width: 992px) {
+			.main h3{
+			padding: 25px 0;
+			text-align: center;
+			background: #fff;
+			margin: 20px 0;
+			}
+			.main h3 a{
+				float: right;
+				font-size: 12px;
+			}
+			.total{
+				background: #fff;
+			}
+			.total .table{
+				width: 35%;
+				    margin: 0 auto;
+			}
+			.total .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+				border: 0;
+			}
+			.publicity_tips{
+				padding: 27px 120px;
+				background: #f7f9fd;
+				padding-right: 85px;
+				font-size: 16px;
+				/*border: 1px dashed #4a73eb;*/
+				background: #fff;
+				margin: 0;
+			}
+			.tips_box{
+				display: flex;
+				display: -webkit-flex;
+				padding: 20px 30px;
+				background: #fef5f1;
+			}
+			.publicity_tips_img{
+				width: 116px;
+				padding: 0 15px;
+			}
+			.publicity_tips img{
+				/*vertical-align: middle;
+				display: inline-block;*/
+				margin-top: 35px;
+			}
+			.publicity_tips_txt{
+				color: #aaa;
+			}
+			.mutual_members{
+				margin-top: 40px;
+				padding: 10px 0;
+				color: #7d7d7d;
+				font-size: 16px;
+				border-top: 1px solid #d2d5d8;
+			}
+			.table1_box{
+				padding-right: 17px;
+			}
+			.table1_box table{
+				margin:0;
+				text-align: center;
+				font-size: 16px;
+				border: 1px solid #d2d5d8;
+				color: #b5b5b5;
+			}
+			.table1_box .table td{
+				padding: 16px 0;
+			}
+			.mutual_members_list{
+				height: 277px;
+				overflow-y: auto;
+				margin-bottom: 40px;
+			}
+			.mutual_members_list .table{
+				text-align: center;
+				font-size: 16px;
+				border: 1px solid #d2d5d8;
+				color: #b5b5b5;
+				position: relative;
+
+
+			}
+			.member_list_title{
+				background: #6d92f4;
+				color: #fff;
+			}
+
+			.mutual_members_list .table td{
+				padding: 16px 0;
+			}
+}
+
+/* 中等屏幕（桌面显示器，大于等于 992px） */
+@media (min-width: 992px) and (max-width: 1200px) {
+			.main h3{
+			padding: 25px 0;
+			text-align: center;
+			background: #fff;
+			margin: 20px 0;
+			}
+			.main h3 a{
+				float: right;
+				font-size: 12px;
+			}
+			.total{
+				background: #fff;
+			}
+			.total .table{
+				width: 30%;
+				margin: 0 auto;
+			}
+			.total .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+				border: 0;
+			}
+			.publicity_tips{
+				padding: 27px 120px;
+				background: #f7f9fd;
+				padding-right: 85px;
+				font-size: 16px;
+				/*border: 1px dashed #4a73eb;*/
+				background: #fff;
+				margin: 0;
+			}
+			.tips_box{
+				display: flex;
+				display: -webkit-flex;
+				padding: 20px 30px;
+				background: #fef5f1;
+			}
+			.publicity_tips_img{
+				width: 340px;
+				padding: 0 15px;
+			}
+			.publicity_tips img{
+				/*vertical-align: middle;
+				display: inline-block;*/
+				margin-top: 34px;
+    			width: 23px;
+			}
+			.publicity_tips_txt{
+				color: #aaa;
+			}
+			.mutual_members{
+				margin-top: 40px;
+				padding: 10px 0;
+				color: #7d7d7d;
+				font-size: 16px;
+				border-top: 1px solid #d2d5d8;
+			}
+			.table1_box{
+				padding-right: 17px;
+			}
+			.table1_box table{
+				margin:0;
+				text-align: center;
+				font-size: 16px;
+				border: 1px solid #d2d5d8;
+				color: #b5b5b5;
+			}
+			.table1_box .table td{
+				padding: 16px 0;
+			}
+			.mutual_members_list{
+				height: 277px;
+				overflow-y: auto;
+				margin-bottom: 40px;
+			}
+			.mutual_members_list .table{
+				text-align: center;
+				font-size: 16px;
+				border: 1px solid #d2d5d8;
+				color: #b5b5b5;
+				position: relative;
+
+
+			}
+			.member_list_title{
+				background: #6d92f4;
+				color: #fff;
+			}
+
+			.mutual_members_list .table td{
+				padding: 16px 0;
+			}
+}
+
+@media (min-width: 1200px) and (max-width: 1400px) {
+			.main h3{
+			padding: 25px 0;
+			text-align: center;
+			background: #fff;
+			margin: 20px 0;
+			}
+			.main h3 a{
+				float: right;
+				font-size: 12px;
+			}
+			.total{
+				background: #fff;
+			}
+			.total .table{
+				width: 30%;
+				    margin: 0 auto;
+			}
+			.total .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+				border: 0;
+			}
+			.publicity_tips{
+				padding: 27px 120px;
+				background: #f7f9fd;
+				padding-right: 85px;
+				font-size: 16px;
+				/*border: 1px dashed #4a73eb;*/
+				background: #fff;
+				margin: 0;
+			}
+			.tips_box{
+				display: flex;
+				display: -webkit-flex;
+				padding: 20px 30px;
+				background: #fef5f1;
+			}
+			.publicity_tips_img{
+				width: 110px;
+				padding: 0 15px;
+			}
+			.publicity_tips img{
+				/*vertical-align: middle;
+				display: inline-block;*/
+				margin-top: 20px;
+			}
+			.publicity_tips_txt{
+				color: #aaa;
+			}
+			.mutual_members{
+				margin-top: 40px;
+				padding: 10px 0;
+				color: #7d7d7d;
+				font-size: 16px;
+				border-top: 1px solid #d2d5d8;
+			}
+			.table1_box{
+				padding-right: 17px;
+			}
+			.table1_box table{
+				margin:0;
+				text-align: center;
+				font-size: 16px;
+				border: 1px solid #d2d5d8;
+				color: #b5b5b5;
+			}
+			.table1_box .table td{
+				padding: 16px 0;
+			}
+			.mutual_members_list{
+				height: 277px;
+				overflow-y: auto;
+				margin-bottom: 40px;
+			}
+			.mutual_members_list .table{
+				text-align: center;
+				font-size: 16px;
+				border: 1px solid #d2d5d8;
+				color: #b5b5b5;
+				position: relative;
+
+
+			}
+			.member_list_title{
+				background: #6d92f4;
+				color: #fff;
+			}
+
+			.mutual_members_list .table td{
+				padding: 16px 0;
+			}
+}
+
+/* 大屏幕（大桌面显示器，大于等于 1200px） */
+@media (min-width: 1400px) {
+			.main h3{
+			padding: 25px 0;
+			text-align: center;
+			background: #fff;
+			margin: 20px 0;
+			}
+			.main h3 a{
+				float: right;
+				font-size: 12px;
+			}
+			.total{
+				background: #fff;
+			}
+			.total .table{
+				width: 30%;
+				margin: 0 auto;
+			}
+			.total .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+				border: 0;
+			}
+			.publicity_tips{
+				padding: 27px 120px;
+				background: #f7f9fd;
+				padding-right: 85px;
+				font-size: 16px;
+				/*border: 1px dashed #4a73eb;*/
+				background: #fff;
+				margin: 0;
+			}
+			.tips_box{
+				display: flex;
+				display: -webkit-flex;
+				padding: 20px 30px;
+				background: #fef5f1;
+			}
+			.publicity_tips_img{
+				width: 80px;
+				padding: 0 15px;
+			}
+			.publicity_tips img{
+				/*vertical-align: middle;
+				display: inline-block;*/
+				margin-top: 9px;
+			}
+			.publicity_tips_txt{
+				color: #aaa;
+			}
+			.mutual_members{
+				margin-top: 40px;
+				padding: 10px 0;
+				color: #7d7d7d;
+				font-size: 16px;
+				border-top: 1px solid #d2d5d8;
+			}
+			.table1_box{
+				padding-right: 17px;
+			}
+			.table1_box table{
+				margin:0;
+				text-align: center;
+				font-size: 16px;
+				border: 1px solid #d2d5d8;
+				color: #b5b5b5;
+			}
+			.table1_box .table td{
+				padding: 16px 0;
+			}
+			.mutual_members_list{
+				height: 277px;
+				overflow-y: auto;
+				margin-bottom: 40px;
+			}
+			.mutual_members_list .table{
+				text-align: center;
+				font-size: 16px;
+				border: 1px solid #d2d5d8;
+				color: #b5b5b5;
+				position: relative;
+
+
+			}
+			.member_list_title{
+				background: #6d92f4;
+				color: #fff;
+			}
+
+			.mutual_members_list .table td{
+				padding: 16px 0;
+			}
+			.table-hover>tbody>tr{
+				cursor: pointer;
+			}
+
+			.table-hover>tbody>tr:hover {
+			    background-color: #c2cff1;
+			    color: #000;
+			}
+}

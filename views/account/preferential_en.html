@@ -1,0 +1,58 @@
+<% layout('getx_layout_en.html') -%>
+<link rel="stylesheet" href="../public/stylesheets/pay_record.css">
+<article>
+	<ul class="breadcrumb">
+        <li>Your current location:</li>
+        <li class=""><a href="/personal">Account summary</a></li>
+        <li class=""><a href="/account">My account</a></li>
+        <li class="active">Historical preferential</li>
+    </ul>
+	<section class="pc_show">
+		<div class="title">Historical preferential</div>
+		<%if(rescnt.status==1){%>
+		<table>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Total</th>
+					<th>Remainder</th>
+					<th>Create date</th>
+					<th>Expiration date</th>
+					<th>Status</th>
+				</tr>
+			</thead>
+			<tbody>
+				<%rescnt.data.forEach(function(v,k){%>
+				<tr>
+					<td><span><%- k*1+1%></span></td>
+					<td><%- v.total_count%> GETX</td>
+					<td><%- v.unused_count%> GETX</td>
+					<td><%- v.create_time%></td>
+					<td><%- v.dead_time%></td>
+					<td><%- v.status==2?'Effect':'Invalidation'%></td>
+				</tr>
+				<%})%>
+			</tbody>
+		</table>
+	<%}%>
+	</section>
+	<section class="mobile_show">
+		<%if(rescnt.status==1){%>
+		<%rescnt.data.forEach(function(v,k){%>
+		<div class="item">
+			<div><span>ID:</span><span class="text"><%- k*1+1%></span></div>
+			<div><span>Total: </span><span class="text"><%- v.total_count%> GETX</span></div>
+			<div><span>Remainder: </span><span class="text"><%- v.unused_count%> GETX</span></div>
+			<div><span>Create date: </span><span class="text"><%- v.create_time%></span></div>
+			<div><span>Expiration date:</span><span class="text"><%- v.dead_time%></span></div>
+			<div><span>Status: </span><span class="text"><%- v.status==2?'Effect':'Invalidation'%></span></div>
+		</div>
+		<%})%>
+		<%}%>
+	</section>
+</article>
+	
+</div>
+<script>
+	
+</script>

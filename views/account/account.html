@@ -1,0 +1,59 @@
+<% layout('getx_layout.html') -%>
+<link rel="stylesheet" href="../public/stylesheets/account.css">
+
+	
+<article>
+	<ul class="breadcrumb">
+        <li>您当前的位置：</li>
+        <li class=""><a href="/personal">个人中心</a></li>
+        <li class="active">我的账户</li>
+    </ul>
+	<section>
+		<div class="header">
+			<img class="img-responsive" src="../public/img/account_bg.png" alt="">
+			<span class="personal text-center">
+				<span class="sculpture">
+					<img src="../public/img/sculpture.png" alt="">
+				</span>
+				<div class="personal_account">
+					<div class="title">我的账户</div>
+					<div class="email"><%-email%></div>
+				</div>
+			</span>			
+		</div>
+		<div class="con_text">
+			<div class="my_preferential">
+				<div class="history_link text-right">
+					<a href="/account/preferential">查询历史记录></a>
+				</div>
+				<div class="account_total text-center">
+					<div class="title">
+						我的优惠账户
+					</div>
+					<div>
+						  赠送的GETX总数：<span class="preferential_num"><%-gave_num%></span>GETX
+					</div>
+				</div>
+
+			</div>
+			<div class="my_account">
+				<div class="history_link text-right">
+					<a href="/account/pay_record">查询历史记录></a>
+				</div>
+				<div class="account_total text-center">
+					<div class="title">
+						我的互助计划账户
+					</div>
+					<div>
+						  互助计划总余额：<span class="account_num"><%-account_num%></span>GETX
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</article>
+	
+</div>
+<script>
+	
+</script>

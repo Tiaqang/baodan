@@ -1,0 +1,112 @@
+<% layout('getx_layout.html') -%>
+<link rel="stylesheet" href="../public/stylesheets/quitGuard.css">
+<ol class="breadcrumb">
+	<li>您当前位置：</li>
+  <li><a href="/personal">个人中心</a></li>
+  <li><a href="/getPersonalAllGuards">我的保障</a></li>
+   <li><a href="/getPersonalGuard/274a7750373f11e8bd73bf684d9d39f6">计划详情</a></li>
+  <li class="active">退出计划</li>
+</ol>
+<div class="mutual_name">
+	<%= mutual_name %>
+</div>
+<% if(quit_info){ %>
+		<% 
+		//正在审核中
+		if(quit_info.stage == 1){ %>
+		
+		<div class="mutual-data">
+			<p style="text-indent: 2em;margin-top: 20px;">如有疑问可联系客服邮箱：mutualaid@inschain.io</a></p>
+		</div>
+		<div class="sub">正在进行人工审核中</div>
+		<%
+			//已通过人工审核
+		 }else if(quit_info.stage == 2) { %>
+			<div class="mutual-data">
+			
+			<p style="text-indent: 2em;margin-top: 20px;">如有疑问可联系客服邮箱：mutualaid@inschain.io</a></p>
+		</div>
+		<div class="sub">已通过人工审核，系统准备返还GETX，1-3个工作日完成。</div>
+
+		<%
+			//已退出
+		 }else if(quit_info.stage == 3) { %>
+			<div class="mutual-data">
+			
+			<p style="text-indent: 2em;margin-top: 20px;">如有疑问可联系客服邮箱：mutualaid@inschain.io</a></p>
+		</div>
+		<div class="sub">已完成退出</div>
+		<% } %>
+	<% }else{ %>
+
+		<div class="mutual-data">
+			<p style="color: #f44040;">说明：退出计划需收手续费5GETX，退出需经过人工审核完成。</p>
+			<label for="eth_address">退出接收GETX地址：</label><input placeholder="ETH地址" type="text" id="eth_address" name="eth_address"><br>
+			<label for="quit_reason">退出原因：</label><br>
+			<textarea placeholder="(500字)" name="quit_reason" maxlength="500" id="quit_reason" cols="30" rows="10"></textarea>
+			
+			
+		</div>
+		<p style="text-indent: 2em;margin-top: 20px;">如有疑问可联系客服邮箱：mutualaid@inschain.io</a></p>
+		<div id="sub" class="sub">确认退出</div>
+	<% } %>
+
+	
+
+	
+
+<script>
+	var odiv = '<div class="mutual-stage">\
+					<div class="mutual-stage-box">\
+						<div class="mutual-stage-body">\
+							<p class="quit-alert-title">请确认</p>\
+							<p>本次提现到账金额为45 GETX，确认无误后填写申请资料（提现申请成功后无法取消）</p>\
+							<div class="continue-quit">\
+							<button id="cancel" type="button" class="btn btn-info btn-lg">取消</button>\
+							<button id="confirm" type="button" class="btn btn-info btn-lg">确认</button>\
+							</div>\
+						</div>\
+					</div>\
+				</div>';
+
+	$('#sub').click(function(){
+		if(!$('#quit_reason').val() || !$('#eth_address').val()){
+				alert("将信息填写完整");
+				return;
+			}
+		// $('body').append(odiv);
+
+		$('.mutual-stage-box').click(function(){
+			$('.mutual-stage').remove();
+		})
+		$('#cancel').click(function(){
+			$('.mutual-stage').remove();
+		})
+		$('.mutual-stage-body').click(function(){
+			event = event || window.event;
+			//阻止事件冒泡
+			event.stopPropagation ? event.stopPropagation() : event.returnValue = "false";
+		});
+		// console.log($('#quit_reason').val(),$('#eth_address').val());
+		// $('#confirm').click(function(){
+			var data = {
+				eth_address:$('#eth_address').val(),
+				quit_reason:$('#quit_reason').val(),
+				insurance_id:'<%= insurance_id %>'
+
+			}
+			// console.log(data);
+			
+
+			$.post('/quit_info',data,function(result){
+					console.log(result);
+					if (result.status == 0) {
+						alert("提交成功");
+						window.location.href = window.location.href
+					}
+			})
+
+		// })
+
+	});
+</script>
